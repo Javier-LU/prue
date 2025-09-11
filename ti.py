@@ -1,5 +1,4 @@
 
-
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox, font
 from PIL import Image, ImageTk, ImageSequence
@@ -31,9 +30,10 @@ from pathlib import Path
 
 
 dicc_var = dicc_var_None
-
 BASE_DIR = Path(__file__).resolve().parent
 ICONOS_DIR = BASE_DIR / "Iconos GUI" 
+
+
 
 #Definimo las funcion de guardar variables en el diccionario que se importa
 
@@ -100,10 +100,8 @@ def guardar_variables(var_list, var_names):
 root = tk.Tk()
 # root.iconbitmap(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Icono.ico')
 
-# icon = ImageTk.PhotoImage(file=r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Icono.png')  #icono de la ventana
-
+#  icon = ImageTk.PhotoImage(file=r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Icono.png')  #icono de la ventana
 icon = ImageTk.PhotoImage(file=str(ICONOS_DIR / "Icono.png"))
-
 root.iconphoto(False, icon)
 
 # Convertir valores RGB a hexadecimal
@@ -162,10 +160,8 @@ def crear_gif_espera():
     label_gif.pack()
     
         # Cargar y mostrar el GIF animado
-    #  gif_path = r"C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Gif_espera.gif"
-
+    # gif_path = r"C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Gif_espera.gif"
     gif_path = ICONOS_DIR / "Gif_espera.gif"
-
     gif = Image.open(gif_path)
     frames = [ImageTk.PhotoImage(frame.copy().convert('RGBA')) for frame in ImageSequence.Iterator(gif)]
     
@@ -256,8 +252,6 @@ notebook.add(AutoCAD_NB, text='AutoCAD Export')
 # Añadir imágenes a las pestañas del notebook
 def cargar_imagen(ruta, tamaño):
 
-
-
     p = Path(ruta)
     if not p.is_absolute():
         p = ICONOS_DIR / p
@@ -268,15 +262,26 @@ def cargar_imagen(ruta, tamaño):
     imagen = imagen.resize(tamaño, Image.LANCZOS)
     return ImageTk.PhotoImage(imagen)
 
-imagen_Excel = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Pestaña 1.PNG', (32, 32))
-imagen_DTR = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Pestaña 2.PNG', (32, 32))
-imagen_DFV = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Pestaña 3.PNG', (32, 32))
-imagen_AASS_NB = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Pestaña 4.PNG', (32, 32))
-imagen_Cable_NB = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Pestaña 5.PNG', (32, 32))
-imagen_Trenches_NB = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Pestaña 6.PNG', (32, 32))
-imagen_Earthing_NB = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Pestaña 7.PNG', (32, 32))
-imagen_Output_NB = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Pestaña 8.PNG', (32, 32))
-imagen_AutoCAD_NB = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Pestaña 9.PNG', (32, 32))
+# imagen_Excel = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Pestaña 1.PNG', (32, 32))
+# imagen_DTR = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Pestaña 2.PNG', (32, 32))
+# imagen_DFV = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Pestaña 3.PNG', (32, 32))
+# imagen_AASS_NB = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Pestaña 4.PNG', (32, 32))
+# imagen_Cable_NB = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Pestaña 5.PNG', (32, 32))
+# imagen_Trenches_NB = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Pestaña 6.PNG', (32, 32))
+# imagen_Earthing_NB = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Pestaña 7.PNG', (32, 32))
+# imagen_Output_NB = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Pestaña 8.PNG', (32, 32))
+# imagen_AutoCAD_NB = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Pestaña 9.PNG', (32, 32))
+
+# ---- USO (todas relativas dentro de "Iconos GUI") ----
+imagen_Excel       = cargar_imagen("Pestaña 1.png", (32, 32))
+imagen_DTR         = cargar_imagen("Pestaña 2.png", (32, 32))
+imagen_DFV         = cargar_imagen("Pestaña 3.png", (32, 32))
+imagen_AASS_NB     = cargar_imagen("Pestaña 4.png", (32, 32))
+imagen_Cable_NB    = cargar_imagen("Pestaña 5.png", (32, 32))
+imagen_Trenches_NB = cargar_imagen("Pestaña 6.png", (32, 32))
+imagen_Earthing_NB = cargar_imagen("Pestaña 7.png", (32, 32))
+imagen_Output_NB   = cargar_imagen("Pestaña 8.png", (32, 32))
+imagen_AutoCAD_NB  = cargar_imagen("Pestaña 9.png", (32, 32))
 
 notebook.tab(0, image=imagen_Excel, compound='top')
 notebook.tab(1, image=imagen_DTR, compound='top')
@@ -293,7 +298,9 @@ notebook.tab(8, image=imagen_AutoCAD_NB, compound='top')
 frame_logo_y_guardado = tk.Frame(notebook, background='white')
 frame_logo_y_guardado.pack(padx=20, pady=18, anchor='ne')
 
-logo_GRE = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Logo_GRE.PNG', (175, 40))
+logo_GRE = cargar_imagen("Logo_GRE.PNG", (175, 40))
+
+# logo_GRE = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Logo_GRE.PNG', (175, 40))
 label_logo_GRE = tk.Label(frame_logo_y_guardado, image=logo_GRE, background='white')
 label_logo_GRE.grid(row=0, column=1)
 
@@ -503,7 +510,7 @@ def seleccionar_archivo_y_cargar_proyecto():
         lim_str_interc          = si_None_vacio(dicc_var.get('lim_str_interc',[]))  #int
         conf_inversores         = np.array(dicc_var.get('conf_inversores',[]))          #array numpy)
         lim_str_dif             = si_None_vacio(dicc_var.get('lim_str_interc',[]))  #int
-        reiniciar_inv   = dicc_var.get('reiniciar_inv',[])               #boolean
+        reiniciar_inv           = dicc_var.get('reiniciar_inv',False)               #boolean
         
         String_o_Bus        = si_None_vacio(dicc_var.get('String_o_Bus',[]))         #str
         masc                = si_None_vacio(dicc_var.get('masc',[]))                 #int
@@ -531,7 +538,7 @@ def seleccionar_archivo_y_cargar_proyecto():
         filas_con_cable_string  = np.array(dicc_var.get('filas_con_cable_string',[]))    #array numpy
         max_bus                = dicc_var.get('max_bus',[])                     #float
         capas_de_envolventes   = dicc_var.get('capas_de_envolventes',[])        #list
-        dos_inv                = dicc_var.get('dos_inv',[])                     #boolean
+        dos_inv                = dicc_var.get('dos_inv',False)                     #boolean
         handle_DC_Boxes        = np.array(dicc_var.get('handle_DC_Boxes',[]))   #array numpy
         handle_inv_string      = np.array(dicc_var.get('handle_inv_string',[]))   #array numpy
         
@@ -796,8 +803,8 @@ def seleccionar_archivo_y_cargar_proyecto():
         else:
             valor_marcador_array=2
         
-        if uni_o_multipolar == 3:
-            var_com_uni_o_multipolar='Single Core'
+        if uni_o_multipolar == 1:
+            var_com_uni_o_multipolar='Single core'
         else:
             var_com_uni_o_multipolar='Multicore'
                 
@@ -816,7 +823,9 @@ def seleccionar_archivo_y_cargar_proyecto():
         
         #Calculos de perdidas
             #ENTRADAS
-        global bifaciality, int_mod_STC, power_mod_STC, subarray_temp, array_temp, pot_inv, cos_phi, v_inv, X_cable, valores_importados_perdidas
+        global cond_Cu_20, cond_Al_20, bifaciality, int_mod_STC, power_mod_STC, subarray_temp, array_temp, pot_inv, cos_phi, v_inv, X_cable, valores_importados_perdidas
+        cond_Cu_20    = si_None_vacio(dicc_var.get('cond_Cu_20',[]))             #int
+        cond_Al_20    = si_None_vacio(dicc_var.get('cond_Al_20',[]))             #int
         bifaciality   = si_None_vacio(dicc_var.get('bifaciality',[]))             #int
         int_mod_STC   = si_None_vacio(dicc_var.get('int_mod_STC',[]))             #float
         power_mod_STC = si_None_vacio(dicc_var.get('power_mod_STC',[]))           #int    
@@ -828,7 +837,7 @@ def seleccionar_archivo_y_cargar_proyecto():
         X_cable       = si_None_vacio(dicc_var.get('X_cable',[]))              #float
         
         
-        valores_importados_perdidas = [bifaciality, int_mod_STC, power_mod_STC, subarray_temp, array_temp, pot_inv, cos_phi, v_inv, X_cable, material_array]
+        valores_importados_perdidas = [cond_Cu_20, cond_Al_20, bifaciality, int_mod_STC, power_mod_STC, subarray_temp, array_temp, pot_inv, cos_phi, v_inv, X_cable, material_array]
         
             #SALIDAS
         global perdidas_cables_string, perdidas_DC_Bus, perdidas_array, cdt_array
@@ -852,6 +861,9 @@ def seleccionar_archivo_y_cargar_proyecto():
         Metodo_ancho_zanjas_LV      = si_None_vacio(dicc_var.get('Metodo_ancho_zanjas_LV', []))         #str
         max_c_tz                    = si_None_vacio(dicc_var.get('max_c_tz',[]))                        #int
         
+        Metodo_ancho_zanjas_MV      = si_None_vacio(dicc_var.get('Metodo_ancho_zanjas_MV', []))         #str
+        max_c_tz_mv                 = si_None_vacio(dicc_var.get('max_c_tz_mv',[]))                     #int
+        
             #Salidas
         global config_circ_zanjas_LV,info_cada_zanja_LV,tipos_y_subtipos_unicos, anchos_tipos_LV
         config_circ_zanjas_LV       = np.array(dicc_var.get('config_circ_zanjas_LV', []))          #array numpy
@@ -859,6 +871,12 @@ def seleccionar_archivo_y_cargar_proyecto():
         tipos_y_subtipos_unicos     = dicc_var.get('tipos_y_subtipos_unicos',[])            #list
         anchos_tipos_LV             = dicc_var.get('anchos_tipos_LV',[])            #list
         
+        global config_circ_zanjas_MV,info_cada_zanja_MV,tipos_y_subtipos_unicos_MV, anchos_tipos_MV
+        config_circ_zanjas_MV       = np.array(dicc_var.get('config_circ_zanjas_MV', []))          #array numpy
+        info_cada_zanja_MV          = dicc_var.get('info_cada_zanja_MV',[])            #list
+        tipos_y_subtipos_unicos_MV     = dicc_var.get('tipos_y_subtipos_unicos_MV',[])            #list
+        anchos_tipos_MV             = dicc_var.get('anchos_tipos_MV',[])            #list
+
         global entradas_diseño_automatico, ancho_min_LV_trench_auto, int_circ_LV_trench_auto, mat_cond_LV_trench_auto, mat_ais_LV_trench_auto, cross_sect_LV_trench_auto, cab_diam_LV_trench_auto, met_inst_LV_trench_auto, temp_LV_trench_auto, res_ter_LV_trench_auto
         ancho_min_LV_trench_auto    = si_None_vacio(dicc_var.get('ancho_min_LV_trench_auto', []))       #float
         int_circ_LV_trench_auto     = si_None_vacio(dicc_var.get('int_circ_LV_trench_auto', []))        #float
@@ -873,11 +891,29 @@ def seleccionar_archivo_y_cargar_proyecto():
         #para funciones
         entradas_diseño_automatico = [ancho_min_LV_trench_auto, int_circ_LV_trench_auto, mat_cond_LV_trench_auto, mat_ais_LV_trench_auto, cross_sect_LV_trench_auto, cab_diam_LV_trench_auto, met_inst_LV_trench_auto, temp_LV_trench_auto, res_ter_LV_trench_auto]
         
+        global entradas_diseño_automatico_MV, ancho_min_MV_trench_auto, int_circ_MV_trench_auto, mat_cond_MV_trench_auto, mat_ais_MV_trench_auto, cross_sect_MV_trench_auto, cab_diam_MV_trench_auto, met_inst_MV_trench_auto, temp_MV_trench_auto, res_ter_MV_trench_auto
+        ancho_min_MV_trench_auto    = si_None_vacio(dicc_var.get('ancho_min_MV_trench_auto', []))       #float
+        int_circ_MV_trench_auto     = si_None_vacio(dicc_var.get('int_circ_MV_trench_auto', []))        #float
+        cross_sect_MV_trench_auto   = si_None_vacio(dicc_var.get('cross_sect_MV_trench_auto', []))      #int
+        cab_diam_MV_trench_auto     = si_None_vacio(dicc_var.get('cab_diam_MV_trench_auto', []))        #float
+        temp_MV_trench_auto         = si_None_vacio(dicc_var.get('temp_MV_trench_auto', []))            #float    
+        res_ter_MV_trench_auto      = si_None_vacio(dicc_var.get('res_ter_MV_trench_auto', []))         #float
+        mat_cond_MV_trench_auto     = si_None_vacio(dicc_var.get('mat_cond_MV_trench_auto', []))        #str
+        mat_ais_MV_trench_auto      = si_None_vacio(dicc_var.get('mat_ais_MV_trench_auto', []))         #str
+        met_inst_MV_trench_auto     = si_None_vacio(dicc_var.get('met_inst_MV_trench_auto', []))        #str
+        
+        #para funciones
+        entradas_diseño_automatico_MV = [ancho_min_MV_trench_auto, int_circ_MV_trench_auto, mat_cond_MV_trench_auto, mat_ais_MV_trench_auto, cross_sect_MV_trench_auto, cab_diam_MV_trench_auto, met_inst_MV_trench_auto, temp_MV_trench_auto, res_ter_MV_trench_auto]
+
         #para GUI
-        global valores_importados_zanjas_DC, valores_importados_prediseño_zanjas_LV, valores_entradas_zanjas_LV_auto
+        global valores_importados_zanjas_DC, valores_importados_prediseño_zanjas_LV, valores_entradas_zanjas_LV_auto, valores_importados_prediseño_zanjas_MV, valores_entradas_zanjas_MV_auto
         valores_importados_zanjas_DC = [n_tubos_max_DC1, ancho_DC1, ancho_DC2]
+        
         valores_importados_prediseño_zanjas_LV = [Metodo_ancho_zanjas_LV, max_c_tz]
         valores_entradas_zanjas_LV_auto=[ancho_min_LV_trench_auto, int_circ_LV_trench_auto, cross_sect_LV_trench_auto, cab_diam_LV_trench_auto, temp_LV_trench_auto, res_ter_LV_trench_auto, mat_cond_LV_trench_auto, mat_ais_LV_trench_auto, met_inst_LV_trench_auto]
+        
+        valores_importados_prediseño_zanjas_MV = [Metodo_ancho_zanjas_MV, max_c_tz_mv]
+        valores_entradas_zanjas_MV_auto=[ancho_min_MV_trench_auto, int_circ_MV_trench_auto, cross_sect_MV_trench_auto, cab_diam_MV_trench_auto, temp_MV_trench_auto, res_ter_MV_trench_auto, mat_cond_MV_trench_auto, mat_ais_MV_trench_auto, met_inst_MV_trench_auto]
         
         global entradas_diseño_manual
         
@@ -962,6 +998,7 @@ def seleccionar_archivo_y_cargar_proyecto():
         entradas_calculo_perdidas(valores_importados_perdidas)
         entradas_zanjas_DC(valores_importados_zanjas_DC) 
         entradas_prediseño_zanjas_LV(valores_importados_prediseño_zanjas_LV)
+        entradas_prediseño_zanjas_MV(valores_importados_prediseño_zanjas_MV)
         entradas_anillo_PAT(valores_importados_electrodo_PAT)
 
         if inv_string.size > 0:
@@ -1157,7 +1194,8 @@ def Iniciar_proyecto_desde_AutoCAD():
                 entradas_medicion_cables_array(valores_iniciales_array)
                 entradas_calculo_perdidas(valores_iniciales_perdidas)
                 entradas_zanjas_DC(valores_iniciales_zanjas_DC)
-                entradas_prediseño_zanjas_LV(valores_iniciales_prediseño_zanjas_LV)                
+                entradas_prediseño_zanjas_LV(valores_iniciales_prediseño_zanjas_LV)           
+                entradas_prediseño_zanjas_MV(valores_iniciales_prediseño_zanjas_MV)    
                 
             elif error_de_dibujo == 'AutoCAD no abierto':
                 messagebox.showerror("Error", "AutoCAD could not be used, please check that AutoCAD is open.")
@@ -1453,7 +1491,9 @@ frame_aux_longitudes.grid(row=0, column=2, padx=5, pady=5, sticky='nsew')
 
 
     # Cargar y colocar el logo y el nombre en ese frame, luego se elimina al cargar el archivo
-logo_IXPHOS = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Logo_IXPHOS.png', (256, 256))
+# logo_IXPHOS = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Logo_IXPHOS.png', (256, 256))
+logo_IXPHOS = cargar_imagen("Logo_IXPHOS.png", (256, 256))
+
 
 label_logo_IXPHOS = tk.Label(frame_inicio_container, image=logo_IXPHOS, background=blanco_roto)
 label_logo_IXPHOS.place(relx=0.5, y=0, anchor='n')
@@ -1543,10 +1583,15 @@ valores_iniciales_comboboxes=[[],[],[]]
 mr_casillas = crear_casillas_DTR(valores_iniciales_entradas,valores_iniciales_comboboxes)
 
 #Importamos los dibujos de las acotaciones
-imagen_DTR_Tracker_GEN = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Dimensions - GEN.PNG', (250, 520))
-imagen_DTR_Tracker_A = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Dimensions - Detail A.PNG', (350, 470))
-imagen_DTR_Tracker_B = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Dimensions - Detail B.PNG', (300, 250))
-imagen_DTR_Tracker_C = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Dimensions - Detail C.PNG', (390, 370))
+imagen_DTR_Tracker_GEN = cargar_imagen("Dimensions - GEN.PNG", (250, 520))
+imagen_DTR_Tracker_A   = cargar_imagen("Dimensions - Detail A.PNG", (350, 470))
+imagen_DTR_Tracker_B   = cargar_imagen("Dimensions - Detail B.PNG", (300, 250))
+imagen_DTR_Tracker_C   = cargar_imagen("Dimensions - Detail C.PNG", (390, 370))
+
+# imagen_DTR_Tracker_GEN = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Dimensions - GEN.PNG', (250, 520))
+# imagen_DTR_Tracker_A = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Dimensions - Detail A.PNG', (350, 470))
+# imagen_DTR_Tracker_B = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Dimensions - Detail B.PNG', (300, 250))
+# imagen_DTR_Tracker_C = cargar_imagen(r'C:\Users\mlopez\OneDrive - GRUPO GRANSOLAR\Desktop\IXPHOS\GUI\Dimensions - Detail C.PNG', (390, 370))
 
 #OPCION PARA HACERLO CON GRID Y SUBFRAMES
 # # Crear los subframes
@@ -2781,9 +2826,34 @@ def leer_conf_LV():
                     # ASIGNACIÓN DE IDs DE STRINGS E INVERSORES
                     strings_ID, String_Inverters_ID, equi_ibv, equi_reverse_ibv, inv_string, equi_ibv_to_fs = Algoritmo_IXPHOS_2_Config_electrica.ID_strings_e_inv_string(
                         bloque_inicial, n_bloques, max_b, max_inv, max_inv_block, max_str_pinv,
-                        inv_string, dos_inv_por_bloque, equi_ibv_to_fs, strings_fisicos, dist_ext_opuesto_str, ori_str_ID, orientacion
+                        inv_string, dos_inv_por_bloque, equi_ibv_to_fs, strings_fisicos, dist_ext_opuesto_str, ori_str_ID, orientacion,
+                        False, None
                     )
                     
+                    #VERIFICACION EN LAYOUTS COMPLICADOS
+                    inv_string, equi_ibv_to_fs, equi_ibv, equi_reverse_ibv = AutoCAD_extension.CAD_read_tercer_barrido_configuracion(acad, capas_de_envolventes, bloque_inicial, n_bloques, max_inv_block, max_str_pinv, dos_inv_por_bloque, strings_ID, inv_string, equi_ibv, equi_reverse_ibv, 
+                                                                                                                                                 equi_ibv_to_fs, max_b, max_inv, strings_fisicos)
+                    ori_str_ID = Algoritmo_IXPHOS_2_Config_electrica.aplicar_flip_strings(
+                        bloque_inicial, n_bloques, max_b, max_inv, max_str_pinv,
+                        equi_ibv_to_fs, ori_str_ID, orientacion, strings_fisicos
+                    )
+                    
+                    # Recalcular camino a strings ID
+                    inv_string[:, :, :, 0], comienzos_filas_strings = Algoritmo_IXPHOS_2_Config_electrica.posicion_inv_string(
+                        inv_string, strings_fisicos, sep_caja_tracker, coord_PCS_DC_inputs, contorno_bandas,
+                        Posicion_optima_caja, equi_ibv_to_fs, orientacion, almacen_strings
+                    )
+                    posiciones_inv=inv_string[:, :, :, 0]
+                    
+                    inv_como_cajas_fisicas = Algoritmo_IXPHOS_2_Config_electrica.obtener_inv_fisicos(bloque_inicial, n_bloques, max_b, max_inv, inv_string)
+                    
+                    strings_ID, String_Inverters_ID, equi_ibv, equi_reverse_ibv, inv_string, equi_ibv_to_fs = Algoritmo_IXPHOS_2_Config_electrica.ID_strings_e_inv_string(
+                        bloque_inicial, n_bloques, max_b, max_inv, max_inv_block, max_str_pinv,
+                        inv_string, dos_inv_por_bloque, equi_ibv_to_fs, strings_fisicos, dist_ext_opuesto_str, ori_str_ID, orientacion,
+                        True, equi_ibv
+                    )
+
+    
                     guardar_variables([inv_string, equi_ibv_to_fs, almacen_strings, ori_str_ID, comienzos_filas_strings, posiciones_inv, inv_como_cajas_fisicas, strings_ID, String_Inverters_ID, equi_ibv, equi_reverse_ibv], ['inv_string', 'equi_ibv_to_fs', 'almacen_strings', 'ori_str_ID', 'comienzos_filas_strings', 'posiciones_inv', 'inv_como_cajas_fisicas', 'strings_ID', 'String_Inverters_ID', 'equi_ibv', 'equi_reverse_ibv'])
                      
             pythoncom.CoUninitialize() #Cerramos en el hilo secundario para ahorrar recursos
@@ -3182,9 +3252,10 @@ def leer_orientacion_strings():
                 strings_ID = salida_leida_2
                 
                                     
-                strings_ID, _ , equi_ibv, equi_reverse_ibv, inv_string, equi_ibv_to_fs = Algoritmo_IXPHOS_2_Config_electrica.ID_strings_e_inv_string(
+                strings_ID, _ , _, _, inv_string, equi_ibv_to_fs = Algoritmo_IXPHOS_2_Config_electrica.ID_strings_e_inv_string(
                     bloque_inicial, n_bloques, max_b, max_inv, max_inv_block, max_str_pinv,
-                    inv_string, dos_inv_por_bloque, equi_ibv_to_fs, strings_fisicos, dist_ext_opuesto_str, ori_str_ID, orientacion
+                    inv_string, dos_inv_por_bloque, equi_ibv_to_fs, strings_fisicos, dist_ext_opuesto_str, ori_str_ID, orientacion,
+                    True, equi_ibv
                 )
                 
                 #guardamos en el diccionario los valores actualizados (los de ID_strings_y_DC_Boxes se guardan dentro de la propia funcion)
@@ -3872,9 +3943,9 @@ def simular_polilineas_array():
             n_circuitos_max_entre_trackers = 8
             
             if entrada_DCBoxes_o_Inv_String.get() == 'DC Boxes':
-                pol_array_cable = Algoritmo_IXPHOS_3_Cables.polilinea_array(max_p_array, bloque_inicial,n_bloques, max_b, max_f_str_b, max_c, coord_PCS_DC_inputs, orientacion, pitch, cajas_fisicas, filas_en_cajas, filas_en_bandas, bandas_anexas, bandas_separadas, bandas_aisladas, sep_caja_tracker, sep_zanja_tracker, salida_zanja_LV_caja_inv, largo_caja, n_circuitos_max_lado_PCS, n_circuitos_max_entre_trackers)
+                pol_array_cable = Algoritmo_IXPHOS_3_Cables.polilinea_array(max_p_array, bloque_inicial,n_bloques, max_b, max_f_str_b, max_c, coord_PCS_DC_inputs, orientacion, pitch, cajas_fisicas, filas_en_cajas, filas_en_bandas, bandas_anexas, bandas_separadas, bandas_aisladas, sep_caja_tracker, sep_zanja_tracker, salida_zanja_LV_caja_inv, largo_caja, n_circuitos_max_lado_PCS, n_circuitos_max_entre_trackers, DCBoxes_o_Inv_String)
             else:
-                pol_array_cable = Algoritmo_IXPHOS_3_Cables.polilinea_array(max_p_array, bloque_inicial,n_bloques, max_b, max_f_str_b, max_inv, coord_PCS_DC_inputs, orientacion, pitch, inv_como_cajas_fisicas, filas_en_inv_como_filas_en_cajas, filas_en_bandas, bandas_anexas, bandas_separadas, bandas_aisladas, sep_caja_tracker, sep_zanja_tracker, salida_zanja_LV_caja_inv, largo_caja, n_circuitos_max_lado_PCS, n_circuitos_max_entre_trackers)
+                pol_array_cable = Algoritmo_IXPHOS_3_Cables.polilinea_array(max_p_array, bloque_inicial,n_bloques, max_b, max_f_str_b, max_inv, coord_PCS_DC_inputs, orientacion, pitch, inv_como_cajas_fisicas, filas_en_inv_como_filas_en_cajas, filas_en_bandas, bandas_anexas, bandas_separadas, bandas_aisladas, sep_caja_tracker, sep_zanja_tracker, salida_zanja_LV_caja_inv, largo_caja, n_circuitos_max_lado_PCS, n_circuitos_max_entre_trackers, DCBoxes_o_Inv_String)
                                                   
             guardar_variables([pol_array_cable, max_p_array, n_circuitos_max_lado_PCS, n_circuitos_max_entre_trackers, salida_zanja_LV_caja_inv],['pol_array_cable', 'max_p_array', 'n_circuitos_max_lado_PCS', 'n_circuitos_max_entre_trackers', 'salida_zanja_LV_caja_inv'])
         except:
@@ -4590,7 +4661,7 @@ def leer_config_FO():
             texto = etiqueta.cget("text")
             valores_subfilas = []
             
-            pol_cable_FO.append([])
+            pol_cable_FO.append([0])
             c_l=c_l+1
             for entrada_1, entrada_2 in subfilas:
                 valor_entrada_1 = entrada_1.get() #Pueden ser numeros de bloque, O&M (u OyM) o SS
@@ -4598,6 +4669,8 @@ def leer_config_FO():
                 
                 if valor_entrada_1=='O&M' or valor_entrada_1=='OyM' or valor_entrada_1=='OYM':
                     valor_coord_inicio = coord_OyM_Control_Room
+                elif valor_entrada_1=='SS':
+                    valor_coord_destino = coord_SS_Control_Room
                 else:
                     bloque_inicio= int(valor_entrada_1)
                     valor_coord_inicio = coord_Comboxes[bloque_inicio]
@@ -5950,18 +6023,23 @@ def leer_valores_GUI_cable_array():
         
     if DCBoxes_o_Inv_String == 'String Inverters':
         if var_array_uni_o_multipolar.get() == 'Single core':
-            uni_o_multipolar=3
-        else:
             uni_o_multipolar=1
+        else:
+            uni_o_multipolar=3
     else:
-       uni_o_multipolar=1
+       if var_array_uni_o_multipolar.get() == 'Single core':
+           uni_o_multipolar=1
+       else:
+           uni_o_multipolar=2
     
     lim_dist_array_sld_seccion = devolver_entero(valor_sld1_arr.get())
     lim_n_str_array_seccion = devolver_entero(valor_loc1_arr.get())
     seccion_array_1 = devolver_entero(valor_s1_arr.get())
     seccion_array_2 = devolver_entero(valor_s2_arr.get())
 
-    secciones_array = [seccion_array_1, seccion_array_2]
+    secciones_array_sin_filtrar = np.array([seccion_array_1, seccion_array_2])
+    secciones_array = secciones_array_sin_filtrar[secciones_array_sin_filtrar != 0].tolist()
+
         
     #Guardar variables en el dicionario
     guardar_variables([desnivel_cable_array_por_pendientes, transicion_array_cable_caja, transicion_array_cable_PCS, slack_array_cable, mayoracion_array_cable, uni_o_multipolar, criterio_seccion_array, lim_dist_array_sld_seccion, lim_n_str_array_seccion, seccion_array_1, seccion_array_2, secciones_array, material_array],['desnivel_cable_array_por_pendientes', 'transicion_array_cable_caja', 'transicion_array_cable_PCS', 'slack_array_cable', 'mayoracion_array_cable', 'uni_o_multipolar', 'criterio_seccion_array', 'lim_dist_array_sld_seccion', 'lim_n_str_array_seccion', 'seccion_array_1', 'seccion_array_2', 'secciones_array', 'material_array'])
@@ -5997,7 +6075,8 @@ def medicion_cable_array():
 
             if error_de_simulacion == 'Error':
                 messagebox.showerror("Error", "There was an error while processing, please check data.")
-                
+            else:
+                messagebox.showinfo("Sucess", "Measurement was completed successfully.")
         except:
             print("Error al borrar el gif")
         
@@ -6076,50 +6155,66 @@ boton_array_CAD_read.grid(row=2, column=5, pady=20)
 # update_values()  # Actualizar valores al inicio
 
 
-valores_iniciales_perdidas = [[],[],[],[]]
+valores_iniciales_perdidas = [[],[],[],[],[58.14], [35.46]]
 
 def entradas_calculo_perdidas(valores_dados_perdidas):    
-    global valor_bif, valor_int_STC, valor_power_STC, valor_subarray_temp, valor_array_temp
+    global valor_cond_Cu, valor_cond_Al, valor_bif, valor_int_STC, valor_power_STC, valor_subarray_temp, valor_array_temp
+    
+    #Conductividad Cobre
+    etiqueta_cond_Cu = tk.Label(frame_DCABLE_calc_local, text="Cond. Cu (20ºC)", fg=rojo_GRS, bg=gris_suave, font=('Montserrat', 10, 'bold'))
+    etiqueta_cond_Cu.grid(row=0, column=0, padx=(5,5),pady=(0,10))
+    valor_cond_Cu = tk.StringVar()
+    valor_cond_Cu.set(valores_dados_perdidas[0])
+    entrada_cond_Cu = tk.Entry(frame_DCABLE_calc_local, textvariable=valor_cond_Cu, width=5)
+    entrada_cond_Cu.grid(row=0, column=1, padx=(0,5), pady=(0,10))
+    
+    #Conductividad Aluminio
+    etiqueta_cond_Al = tk.Label(frame_DCABLE_calc_local, text="Cond. Al (20ºC)", fg=rojo_GRS, bg=gris_suave, font=('Montserrat', 10, 'bold'))
+    etiqueta_cond_Al.grid(row=1, column=0, padx=(5,5),pady=(0,10))
+    valor_cond_Al = tk.StringVar()
+    valor_cond_Al.set(valores_dados_perdidas[1])
+    entrada_cond_Al = tk.Entry(frame_DCABLE_calc_local, textvariable=valor_cond_Al, width=5)
+    entrada_cond_Al.grid(row=1, column=1, padx=(0,5), pady=(0,10))
     
     #Bifacialidad
     etiqueta_bif = tk.Label(frame_DCABLE_calc_local, text="Bifaciality (%)", fg=rojo_GRS, bg=gris_suave, font=('Montserrat', 10, 'bold'))
-    etiqueta_bif.grid(row=0, column=0, padx=(5,5),pady=(0,10))
+    etiqueta_bif.grid(row=0, column=2, padx=(5,5),pady=(0,10))
     valor_bif = tk.StringVar()
-    valor_bif.set(valores_dados_perdidas[0])
+    valor_bif.set(valores_dados_perdidas[2])
     entrada_bif = tk.Entry(frame_DCABLE_calc_local, textvariable=valor_bif, width=5)
-    entrada_bif.grid(row=0, column=1, padx=(0,5), pady=(0,10))
+    entrada_bif.grid(row=0, column=3, padx=(0,5), pady=(0,10))
     
     #Intensidad MPP del modulo en STC
     etiqueta_int_STC = tk.Label(frame_DCABLE_calc_local, text="Impp STC (A)", fg=rojo_GRS, bg=gris_suave, font=('Montserrat', 10, 'bold'))
-    etiqueta_int_STC.grid(row=1, column=0, padx=(5,5),pady=(0,10))
+    etiqueta_int_STC.grid(row=1, column=2, padx=(5,5),pady=(0,10))
     valor_int_STC = tk.StringVar()
-    valor_int_STC.set(valores_dados_perdidas[1])
+    valor_int_STC.set(valores_dados_perdidas[3])
     entrada_int_STC = tk.Entry(frame_DCABLE_calc_local, textvariable=valor_int_STC, width=5)
-    entrada_int_STC.grid(row=1, column=1, padx=(0,5), pady=(0,10))
+    entrada_int_STC.grid(row=1, column=3, padx=(0,5), pady=(0,10))
     
     #Potencia MPP del modulo en STC
     etiqueta_power_STC = tk.Label(frame_DCABLE_calc_local, text="Power STC (Wp)", fg=rojo_GRS, bg=gris_suave, font=('Montserrat', 10, 'bold'))
-    etiqueta_power_STC.grid(row=2, column=0, padx=(5,5),pady=(0,10))
+    etiqueta_power_STC.grid(row=2, column=2, padx=(5,5),pady=(0,10))
     valor_power_STC = tk.StringVar()
-    valor_power_STC.set(valores_dados_perdidas[2])
+    valor_power_STC.set(valores_dados_perdidas[4])
     entrada_power_STC = tk.Entry(frame_DCABLE_calc_local, textvariable=valor_power_STC, width=5)
-    entrada_power_STC.grid(row=2, column=1, padx=(0,5), pady=(0,10))
+    entrada_power_STC.grid(row=2, column=3, padx=(0,5), pady=(0,10))
     
     #Temperatura del cable de subarray para el calculo
     etiqueta_subarray_temp = tk.Label(frame_DCABLE_calc_local, text="Subarray cable temp (ºC)", fg=rojo_GRS, bg=gris_suave, font=('Montserrat', 10, 'bold'))
-    etiqueta_subarray_temp.grid(row=3, column=0, padx=(10,0),pady=(10,5))
+    etiqueta_subarray_temp.grid(row=3, column=2, padx=(10,0),pady=(10,5))
     valor_subarray_temp = tk.StringVar()
-    valor_subarray_temp.set(valores_dados_perdidas[3])
+    valor_subarray_temp.set(valores_dados_perdidas[5])
     entrada_subarray_temp = tk.Entry(frame_DCABLE_calc_local, textvariable=valor_subarray_temp, width=5)
-    entrada_subarray_temp.grid(row=3, column=1, padx=(5,20), pady=(10,5))
+    entrada_subarray_temp.grid(row=3, column=3, padx=(5,20), pady=(10,5))
 
     #Temperatura del cable de array para el calculo
     etiqueta_array_temp = tk.Label(frame_DCABLE_calc_local, text="Array cable temp (ºC)", fg=rojo_GRS, bg=gris_suave, font=('Montserrat', 10, 'bold'))
-    etiqueta_array_temp.grid(row=4, column=0, padx=(10,0),pady=(10,5))
+    etiqueta_array_temp.grid(row=4, column=2, padx=(10,0),pady=(10,5))
     valor_array_temp = tk.StringVar()
-    valor_array_temp.set(valores_dados_perdidas[4])
+    valor_array_temp.set(valores_dados_perdidas[6])
     entrada_array_temp = tk.Entry(frame_DCABLE_calc_local, textvariable=valor_array_temp, width=5)
-    entrada_array_temp.grid(row=4, column=1, padx=(5,20), pady=(10,5))
+    entrada_array_temp.grid(row=4, column=3, padx=(5,20), pady=(10,5))
     
     
     #-----------------------------Si es AC------------------------
@@ -6128,43 +6223,45 @@ def entradas_calculo_perdidas(valores_dados_perdidas):
         
         #Potencia activa inversor
         etiqueta_pot_inv = tk.Label(frame_DCABLE_calc_local, text="Active Power Inv (W)", fg=rojo_GRS, bg=gris_suave, font=('Montserrat', 10, 'bold'))
-        etiqueta_pot_inv.grid(row=0, column=2, padx=(10,0),pady=(10,5))
+        etiqueta_pot_inv.grid(row=0, column=4, padx=(10,0),pady=(10,5))
         valor_pot_inv = tk.StringVar()
-        valor_pot_inv.set(valores_dados_perdidas[5])
+        valor_pot_inv.set(valores_dados_perdidas[7])
         entrada_pot_inv = tk.Entry(frame_DCABLE_calc_local, textvariable=valor_pot_inv, width=10)
-        entrada_pot_inv.grid(row=0, column=3, padx=(5,20), pady=(10,5))
+        entrada_pot_inv.grid(row=0, column=5, padx=(5,20), pady=(10,5))
         
         #Coseno de phi
         etiqueta_cos_phi = tk.Label(frame_DCABLE_calc_local, text="Cos Phi", fg=rojo_GRS, bg=gris_suave, font=('Montserrat', 10, 'bold'))
-        etiqueta_cos_phi.grid(row=1, column=2, padx=(10,0),pady=(10,5))
+        etiqueta_cos_phi.grid(row=1, column=4, padx=(10,0),pady=(10,5))
         valor_cos_phi = tk.StringVar()
-        valor_cos_phi.set(valores_dados_perdidas[6])
+        valor_cos_phi.set(valores_dados_perdidas[8])
         entrada_cos_phi = tk.Entry(frame_DCABLE_calc_local, textvariable=valor_cos_phi, width=5)
-        entrada_cos_phi.grid(row=1, column=3, padx=(5,20), pady=(10,5))
+        entrada_cos_phi.grid(row=1, column=5, padx=(5,20), pady=(10,5))
         
         #Tension nominal inversor
         etiqueta_v_inv = tk.Label(frame_DCABLE_calc_local, text="Nominal Voltage Inv (V)", fg=rojo_GRS, bg=gris_suave, font=('Montserrat', 10, 'bold'))
-        etiqueta_v_inv.grid(row=2, column=2, padx=(10,0),pady=(10,5))
+        etiqueta_v_inv.grid(row=2, column=4, padx=(10,0),pady=(10,5))
         valor_v_inv = tk.StringVar()
-        valor_v_inv.set(valores_dados_perdidas[7])
+        valor_v_inv.set(valores_dados_perdidas[9])
         entrada_v_inv = tk.Entry(frame_DCABLE_calc_local, textvariable=valor_v_inv, width=5)
-        entrada_v_inv.grid(row=2, column=3, padx=(5,20), pady=(10,5))
+        entrada_v_inv.grid(row=2, column=5, padx=(5,20), pady=(10,5))
         
         #Reactancia del cable de array
         etiqueta_X_cable = tk.Label(frame_DCABLE_calc_local, text="Cable Reactance (mOhm/m)", fg=rojo_GRS, bg=gris_suave, font=('Montserrat', 10, 'bold'))
-        etiqueta_X_cable.grid(row=3, column=2, padx=(10,0),pady=(10,5))
+        etiqueta_X_cable.grid(row=3, column=4, padx=(10,0),pady=(10,5))
         valor_X_cable = tk.StringVar()
-        valor_X_cable.set(valores_dados_perdidas[8])
+        valor_X_cable.set(valores_dados_perdidas[10])
         entrada_X_cable = tk.Entry(frame_DCABLE_calc_local, textvariable=valor_X_cable, width=5)
-        entrada_X_cable.grid(row=3, column=3, padx=(5,20), pady=(10,5))
+        entrada_X_cable.grid(row=3, column=5, padx=(5,20), pady=(10,5))
         
 
     
     
 def leer_valores_GUI_calculo_perdidas():
-    global bifaciality, int_mod_STC, power_mod_STC, subarray_temp, array_temp
+    global bifaciality, int_mod_STC, power_mod_STC, subarray_temp, array_temp, cond_Cu_20, cond_Al_20
     
     #leemos las entradas previas
+    cond_Al_20=float(valor_cond_Al.get())
+    cond_Cu_20=float(valor_cond_Cu.get())
     bifaciality=float(valor_bif.get()) 
     int_mod_STC=float(valor_int_STC.get()) 
     power_mod_STC=float(valor_power_STC.get())  
@@ -6183,7 +6280,7 @@ def leer_valores_GUI_calculo_perdidas():
 
         
     #Guardar variables en el dicionario
-    guardar_variables([bifaciality, int_mod_STC, power_mod_STC, subarray_temp, array_temp],['bifaciality', 'int_mod_STC', 'power_mod_STC', 'subarray_temp', 'array_temp'])
+    guardar_variables([bifaciality, int_mod_STC, power_mod_STC, subarray_temp, array_temp, cond_Cu_20, cond_Al_20],['bifaciality', 'int_mod_STC', 'power_mod_STC', 'subarray_temp', 'array_temp', 'cond_Al_20', 'cond_Cu_20'])
 
 
 def _fmt_pct(val):
@@ -6301,13 +6398,13 @@ def calcular_perdidas_cables():
             pot_string_STC = [power_mod_STC * n_mods_serie for _ in range(n_bloques+1)] #temporalmente consideramos que la potencia de los string es identica en todos los bloques (misma potencia de modulo en cada bloque, sin sorting)
             if String_o_Bus == 'String Cable':
                 perdidas_cables_string = np.full(sch_cable_de_string_pos.shape[:-1] + (2,), np.nan, dtype=float)
-                perdidas_cables_string = Algoritmo_IXPHOS_3_Cables.calculo_perdidas_cables_string(strings_fisicos,bloque_inicial, n_bloques, max_b, max_f_str_b, max_spf, perdidas_cables_string, equi_ibfs, med_inst_cable_string_pos, med_inst_cable_string_neg, pot_string_STC, filas_con_cable_string, int_mod_STC, subarray_temp, DCBoxes_o_Inv_String, strings_ID)
+                perdidas_cables_string = Algoritmo_IXPHOS_3_Cables.calculo_perdidas_cables_string(strings_fisicos,bloque_inicial, n_bloques, max_b, max_f_str_b, max_spf, perdidas_cables_string, equi_ibfs, med_inst_cable_string_pos, med_inst_cable_string_neg, pot_string_STC, filas_con_cable_string, int_mod_STC, subarray_temp, DCBoxes_o_Inv_String, strings_ID, bifaciality,  cond_Cu_20, cond_Al_20)
 
                 guardar_variables([perdidas_cables_string],['perdidas_cables_string'])
                 
             elif String_o_Bus == 'DC Bus':
                 perdidas_DC_Bus = np.full(sch_DC_Bus_pos.shape[:-1] + (2,), np.nan, dtype=float)
-                perdidas_DC_Bus = Algoritmo_IXPHOS_3_Cables.calculo_perdidas_DC_Bus(bloque_inicial,n_bloques, max_b, max_f_str_b, max_spf, perdidas_DC_Bus, equi_ibfs, pot_string_STC, filas_con_cable_string, harness_pos, harness_neg, coord_harness_pos, coord_harness_neg, long_string, int_mod_STC, subarray_temp, med_inst_DC_Bus_pos, tramo_aereo_DC_Bus_pos, strings_fisicos, slack_cable_subarray, desnivel_cable_por_pendientes_tramo_aereo)
+                perdidas_DC_Bus = Algoritmo_IXPHOS_3_Cables.calculo_perdidas_DC_Bus(bloque_inicial,n_bloques, max_b, max_f_str_b, max_spf, perdidas_DC_Bus, equi_ibfs, pot_string_STC, filas_con_cable_string, harness_pos, harness_neg, coord_harness_pos, coord_harness_neg, long_string, int_mod_STC, subarray_temp, med_inst_DC_Bus_pos, tramo_aereo_DC_Bus_pos, strings_fisicos, slack_cable_subarray, desnivel_cable_por_pendientes_tramo_aereo, bifaciality,  cond_Cu_20, cond_Al_20)
 
                 guardar_variables([perdidas_DC_Bus],['perdidas_DC_Bus'])
    
@@ -6315,8 +6412,8 @@ def calcular_perdidas_cables():
                 perdidas_cables_string = np.full(sch_cable_de_string_pos.shape[:-1] + (2,), np.nan, dtype=float)
                 perdidas_DC_Bus = np.full(sch_DC_Bus_pos.shape[:-1] + (2,), np.nan, dtype=float)
                 
-                perdidas_cables_string = Algoritmo_IXPHOS_3_Cables.calculo_perdidas_cables_string(strings_fisicos,bloque_inicial, n_bloques, max_b, max_f_str_b, max_spf, perdidas_cables_string, equi_ibfs, med_inst_cable_string_pos, med_inst_cable_string_neg, pot_string_STC, filas_con_cable_string, int_mod_STC, subarray_temp, DCBoxes_o_Inv_String, strings_ID)
-                perdidas_DC_Bus = Algoritmo_IXPHOS_3_Cables.calculo_perdidas_DC_Bus(bloque_inicial,n_bloques, max_b, max_f_str_b, max_spf, perdidas_DC_Bus, equi_ibfs, pot_string_STC, filas_con_cable_string, harness_pos, harness_neg, coord_harness_pos, coord_harness_neg, long_string, int_mod_STC, subarray_temp, med_inst_DC_Bus_pos, tramo_aereo_DC_Bus_pos, strings_fisicos, slack_cable_subarray, desnivel_cable_por_pendientes_tramo_aereo)
+                perdidas_cables_string = Algoritmo_IXPHOS_3_Cables.calculo_perdidas_cables_string(strings_fisicos,bloque_inicial, n_bloques, max_b, max_f_str_b, max_spf, perdidas_cables_string, equi_ibfs, med_inst_cable_string_pos, med_inst_cable_string_neg, pot_string_STC, filas_con_cable_string, int_mod_STC, subarray_temp, DCBoxes_o_Inv_String, strings_ID, bifaciality,  cond_Cu_20, cond_Al_20)
+                perdidas_DC_Bus = Algoritmo_IXPHOS_3_Cables.calculo_perdidas_DC_Bus(bloque_inicial,n_bloques, max_b, max_f_str_b, max_spf, perdidas_DC_Bus, equi_ibfs, pot_string_STC, filas_con_cable_string, harness_pos, harness_neg, coord_harness_pos, coord_harness_neg, long_string, int_mod_STC, subarray_temp, med_inst_DC_Bus_pos, tramo_aereo_DC_Bus_pos, strings_fisicos, slack_cable_subarray, desnivel_cable_por_pendientes_tramo_aereo, bifaciality, cond_Cu_20, cond_Al_20)
                 
                 guardar_variables([perdidas_cables_string,perdidas_DC_Bus],['perdidas_cables_string', 'perdidas_DC_Bus'])
            
@@ -6329,7 +6426,7 @@ def calcular_perdidas_cables():
                 perdidas_array, cdt_array = Algoritmo_IXPHOS_3_Cables.calculo_perdidas_array(bloque_inicial,n_bloques, max_b, max_c, DCBoxes_o_Inv_String, cajas_fisicas, equi_ibc, med_array_cable_pos, med_array_cable_neg, med_array_cable, uni_o_multipolar, int_mod_STC, array_temp, perdidas_array, pot_string_STC, cdt_array, pot_inv, cos_phi, v_inv, X_cable, material_array)
             else:
                 cdt_array = np.full(sch_array_cable.shape[:-1] + (2,), np.nan, dtype=float)
-                perdidas_array, cdt_array = Algoritmo_IXPHOS_3_Cables.calculo_perdidas_array(bloque_inicial,n_bloques, max_b, max_inv, DCBoxes_o_Inv_String, inv_como_cajas_fisicas, equi_ibv, med_array_cable_pos, med_array_cable_neg, med_array_cable, uni_o_multipolar, int_mod_STC, array_temp, perdidas_array, pot_string_STC, cdt_array, pot_inv, cos_phi, v_inv, X_cable, material_array)
+                perdidas_array, cdt_array = Algoritmo_IXPHOS_3_Cables.calculo_perdidas_array(bloque_inicial,n_bloques, max_b, max_inv, DCBoxes_o_Inv_String, inv_como_cajas_fisicas, equi_ibv, med_array_cable_pos, med_array_cable_neg, med_array_cable, uni_o_multipolar, int_mod_STC, array_temp, perdidas_array, pot_string_STC, cdt_array, pot_inv, cos_phi, v_inv, X_cable, material_array, bifaciality, cond_Cu_20, cond_Al_20)
 
             guardar_variables([perdidas_array, cdt_array],['perdidas_array', 'cdt_array'])
             
@@ -6404,7 +6501,7 @@ def calcular_perdidas_cables():
 
 
 boton_array_CAD_read = tk.Button(frame_DCABLE_calc_local, text="Calculate", command=calcular_perdidas_cables, bg=rojo_GRS, fg='white', font=('Montserrat', 10, 'bold'))
-boton_array_CAD_read.grid(row=2, column=5, padx=20)
+boton_array_CAD_read.grid(row=4, column=5, padx=20)
 
 
 
@@ -6443,14 +6540,25 @@ frame_procesos_zanjas.grid_columnconfigure(1, weight=2)
 frame_zanjas_DC = tk.Frame(frame_procesos_zanjas, background=blanco_roto)
 frame_zanjas_DC.grid(row=0, column=0, sticky='nsew', padx=10, pady=0)
 
+
+# Crear el notebook para LV y MV
+notebook_LV_MV = ttk.Notebook(frame_procesos_zanjas)
+notebook_LV_MV.grid(row=0, column=1, columnspan=2, sticky='nsew', padx=10, pady=0)
+
 frame_zanjas_LV = tk.Frame(frame_procesos_zanjas, background=blanco_roto)
-frame_zanjas_LV.grid(row=0, column=1, sticky='nsew', padx=10, pady=0)
+frame_zanjas_MV = tk.Frame(frame_procesos_zanjas, background=blanco_roto)
+
+# Añadir los frames como pestañas
+notebook_LV_MV.add(frame_zanjas_LV, text='LV Trenches')
+notebook_LV_MV.add(frame_zanjas_MV, text='MV Trenches')
+
+
 
 #Dividimos el frame de zanjas LV en dos subframes, uno para el prediseño y otro para los calculos de ancho de zanja
 frame_zanjas_LV.grid_rowconfigure(0, weight=1)
 frame_zanjas_LV.grid_rowconfigure(1, weight=7)
 
-    #Creamos los dos dsubframes LV
+    #Creamos los dos subframes LV
 frame_zanjas_LV_prediseño = tk.Frame(frame_zanjas_LV, background=blanco_roto)
 frame_zanjas_LV_prediseño.grid(row=0, column=0, sticky='nsew', padx=20, pady=0)
 
@@ -6466,6 +6574,28 @@ frame_tabla_config_zanjas_LV.grid(row=0, column=0, sticky='nsew', padx=10, pady=
 frame_tabla_anchos_zanjas_LV = tk.Frame(frame_zanjas_LV_calculo, background=blanco_roto)
 frame_tabla_anchos_zanjas_LV.grid(row=0, column=1, sticky='nsew', padx=10, pady=0)         
 
+
+
+
+#Dividimos el frame de zanjas MV en dos subframes, uno para el prediseño y otro para los calculos de ancho de zanja
+frame_zanjas_MV.grid_rowconfigure(0, weight=1)
+frame_zanjas_MV.grid_rowconfigure(1, weight=7)
+
+    #Creamos los dos subframes MV
+frame_zanjas_MV_prediseño = tk.Frame(frame_zanjas_MV, background=blanco_roto)
+frame_zanjas_MV_prediseño.grid(row=0, column=0, sticky='nsew', padx=20, pady=0)
+
+frame_zanjas_MV_calculo = tk.Frame(frame_zanjas_MV, background=blanco_roto)
+frame_zanjas_MV_calculo.grid(row=1, column=0, sticky='nsew', padx=20, pady=0)
+        #Dividimos el subframe de calculo en 2 para albergar las dos tablas manuales
+frame_zanjas_MV_calculo.grid_columnconfigure(0, weight=1)
+frame_zanjas_MV_calculo.grid_columnconfigure(1, weight=1)
+            #Creamos los dos subframes adicionales
+frame_tabla_config_zanjas_MV = tk.Frame(frame_zanjas_MV_calculo, background=blanco_roto)
+frame_tabla_config_zanjas_MV.grid(row=0, column=0, sticky='nsew', padx=10, pady=0)          
+
+frame_tabla_anchos_zanjas_MV = tk.Frame(frame_zanjas_MV_calculo, background=blanco_roto)
+frame_tabla_anchos_zanjas_MV.grid(row=0, column=1, sticky='nsew', padx=10, pady=0)         
 
 
 
@@ -6671,7 +6801,9 @@ valores_entradas_zanjas_LV_auto=[[],[],[],[],[],  [],[],[],[]]
 
 
 
-
+#Inicializamos estos por si se llega sin haber guardado antes
+anchos_tipos_MV = []
+anchos_tipos_LV = []
 
 
 def entradas_zanjas_LV_manual(matriz_de_datos):
@@ -6833,7 +6965,7 @@ def entradas_anchos_manuales_LV():
     #Entradas tipo celda
     global entradas_anchos_tipos_LV, anchos_tipos_LV
     
-    if anchos_tipos_LV is None:
+    if not anchos_tipos_LV:
         anchos_tipos_LV = [''] * len(tipos_y_subtipos_unicos)
         
     entradas_anchos_tipos_LV = []
@@ -6855,6 +6987,318 @@ def entradas_anchos_manuales_LV():
     
     boton_sim_LV_trenches_auto = tk.Button(frame_tabla_anchos_zanjas_LV, text="Simulate LV Trenches", command=simular_zanjas_LV_manual, bg=rojo_GRS, fg='white', font=('Montserrat', 10, 'bold'))
     boton_sim_LV_trenches_auto.grid(row=max_i+1, column=0, pady=20) 
+    
+    
+    
+    
+    
+    
+def entradas_prediseño_zanjas_MV(valores_iniciales_prediseño_zanjas_MV):
+    global entrada_met_diseño_mv, entrada_max_c_tz_mv
+    
+        #Combobox para método de diseño
+    opciones_met_diseño_mv = ["Manual", "IEC 60364", "AS/NZS 3008"]
+    entrada_met_diseño_mv = tk.StringVar(value = valores_iniciales_prediseño_zanjas_MV[0])
+    
+    etiqueta_met_diseño_mv = tk.Label(frame_zanjas_MV_prediseño, text='Design method', fg=rojo_GRS, font=('Montserrat', 10,'bold'))
+    etiqueta_met_diseño_mv.grid(row=0, column=0)
+    combobox_met_diseño_mv=ttk.Combobox(frame_zanjas_MV_prediseño, textvariable=entrada_met_diseño_mv, values=opciones_met_diseño_mv)
+    combobox_met_diseño_mv.grid(row=0, column=1)
+    
+        #Maximo numero de circuitos por tipo de zanja
+    opciones_max_c_tz_mv = ['1', '2', '3', '4']
+    entrada_max_c_tz_mv = tk.StringVar(value = valores_iniciales_prediseño_zanjas_MV[1])
+    
+    etiqueta_max_c_tz_mv = tk.Label(frame_zanjas_MV_prediseño, text='Max. no. circuits per trench type', fg=rojo_GRS, font=('Montserrat', 10,'bold'))
+    etiqueta_max_c_tz_mv.grid(row=1, column=0)
+    combobox_max_c_tz_mv=ttk.Combobox(frame_zanjas_MV_prediseño, textvariable=entrada_max_c_tz_mv, values=opciones_max_c_tz_mv)
+    combobox_max_c_tz_mv.grid(row=1, column=1)
+    
+
+
+
+valores_iniciales_prediseño_zanjas_MV=[[],[],[]]    
+    
+    
+
+def entradas_zanjas_MV_auto(valores_zanjas_MV_auto):
+    #Limpiamos los widgets existentes antes de rellenar el frame
+    for widget in frame_tabla_config_zanjas_MV.winfo_children():
+        widget.destroy()
+    for widget in frame_tabla_anchos_zanjas_MV.winfo_children():
+        widget.destroy()
+    
+    global valor_ancho_min, valor_int_circ, entrada_secciones_MV, valor_cab_diam, valor_temp, valor_res_ter, entrada_material_cond, entrada_material_ais, entrada_met_inst
+    
+    #Entradas para simulacion automatica
+        #Ancho_minimo
+    etiqueta_ancho_min = tk.Label(frame_tabla_config_zanjas_MV, text="Minimum width (m)", fg=rojo_GRS, bg=gris_suave, font=('Montserrat', 10, 'bold'))
+    etiqueta_ancho_min.grid(row=2, column=0, padx=(10,0),pady=(15,10))
+    valor_ancho_min = tk.StringVar()
+    valor_ancho_min.set(valores_zanjas_MV_auto[0])
+    entrada_ancho_min = tk.Entry(frame_tabla_config_zanjas_MV, textvariable=valor_ancho_min, width=5)
+    entrada_ancho_min.grid(row=2, column=1, padx=(5,20), pady=(15,10))
+        #Intensidad de circuitos
+    etiqueta_int_circ = tk.Label(frame_tabla_config_zanjas_MV, text="Circuit Current (A)", fg=rojo_GRS, bg=gris_suave, font=('Montserrat', 10, 'bold'))
+    etiqueta_int_circ.grid(row=3, column=0, padx=(10,0),pady=(15,10))
+    valor_int_circ = tk.StringVar()
+    valor_int_circ.set(valores_zanjas_MV_auto[1])
+    entrada_int_circ = tk.Entry(frame_tabla_config_zanjas_MV, textvariable=valor_int_circ, width=5)
+    entrada_int_circ.grid(row=3, column=1, padx=(5,20), pady=(15,10))
+
+        #Combobox para seccion de conductor
+    opciones_secciones_MV = ['120','150','185','240','300','400']
+    entrada_secciones_MV = tk.StringVar(value = valores_zanjas_MV_auto[2])
+    
+    etiqueta_secciones_MV = tk.Label(frame_tabla_config_zanjas_MV, text='Cross section', fg=rojo_GRS, font=('Montserrat', 10,'bold'))
+    etiqueta_secciones_MV.grid(row=4, column=0)
+    combobox_secciones_MV=ttk.Combobox(frame_tabla_config_zanjas_MV, textvariable=entrada_secciones_MV, values=opciones_secciones_MV)
+    combobox_secciones_MV.grid(row=4, column=1)
+        #Diametro cable
+    etiqueta_cab_diam = tk.Label(frame_tabla_config_zanjas_MV, text="Cable diameter (mm)", fg=rojo_GRS, bg=gris_suave, font=('Montserrat', 10, 'bold'))
+    etiqueta_cab_diam.grid(row=5, column=0, padx=(10,0),pady=(15,10))
+    valor_cab_diam = tk.StringVar()
+    valor_cab_diam.set(valores_zanjas_MV_auto[3])
+    entrada_cab_diam = tk.Entry(frame_tabla_config_zanjas_MV, textvariable=valor_cab_diam, width=5)
+    entrada_cab_diam.grid(row=5, column=1, padx=(5,20), pady=(15,10))
+        #Temperatura de suelo
+    etiqueta_temp = tk.Label(frame_tabla_config_zanjas_MV, text="Soil temperature (ºC)", fg=rojo_GRS, bg=gris_suave, font=('Montserrat', 10, 'bold'))
+    etiqueta_temp.grid(row=6, column=0, padx=(10,0),pady=(15,10))
+    valor_temp = tk.StringVar()
+    valor_temp.set(valores_zanjas_MV_auto[4])
+    entrada_temp = tk.Entry(frame_tabla_config_zanjas_MV, textvariable=valor_temp, width=5)
+    entrada_temp.grid(row=6, column=1, padx=(5,20), pady=(15,10))
+        #Resistividad termica
+    etiqueta_res_ter = tk.Label(frame_tabla_config_zanjas_MV, text="Soil resistivity (W/m-K)", fg=rojo_GRS, bg=gris_suave, font=('Montserrat', 10, 'bold'))
+    etiqueta_res_ter.grid(row=7, column=0, padx=(10,0),pady=(15,10))
+    valor_res_ter = tk.StringVar()
+    valor_res_ter.set(valores_zanjas_MV_auto[5])
+    entrada_res_ter = tk.Entry(frame_tabla_config_zanjas_MV, textvariable=valor_res_ter, width=5)
+    entrada_res_ter.grid(row=7, column=1, padx=(5,20), pady=(15,10))
+    
+        #Combobox para material del conductor
+    opciones_material_cond = ["Cu", "Al"]
+    entrada_material_cond = tk.StringVar(value = valores_zanjas_MV_auto[6])
+    
+    etiqueta_material_cond = tk.Label(frame_tabla_config_zanjas_MV, text='Conductor material', fg=rojo_GRS, font=('Montserrat', 10,'bold'))
+    etiqueta_material_cond.grid(row=8, column=0)
+    combobox_material_cond=ttk.Combobox(frame_tabla_config_zanjas_MV, textvariable=entrada_material_cond, values=opciones_material_cond)
+    combobox_material_cond.grid(row=8, column=1)
+    
+        #Combobox para material del aislante
+    opciones_material_ais = ["PVC (70ºC)", "XLPE or EPR (90ºC)"]
+    entrada_material_ais = tk.StringVar(value = valores_zanjas_MV_auto[7])
+    
+    etiqueta_material_ais = tk.Label(frame_tabla_config_zanjas_MV, text='Insulation material', fg=rojo_GRS, font=('Montserrat', 10,'bold'))
+    etiqueta_material_ais.grid(row=9, column=0)
+    combobox_material_ais=ttk.Combobox(frame_tabla_config_zanjas_MV, textvariable=entrada_material_ais, values=opciones_material_ais)
+    combobox_material_ais.grid(row=9, column=1)
+    
+        #Combobox para método de instalacion
+    opciones_met_inst = ["Directly buried", "Buried in conduits"]
+    entrada_met_inst = tk.StringVar(value = valores_zanjas_MV_auto[8])
+    
+    etiqueta_met_inst = tk.Label(frame_tabla_config_zanjas_MV, text='Installation method', fg=rojo_GRS, font=('Montserrat', 10,'bold'))
+    etiqueta_met_inst.grid(row=10, column=0)
+    combobox_met_inst=ttk.Combobox(frame_tabla_config_zanjas_MV, textvariable=entrada_met_inst, values=opciones_met_inst)
+    combobox_met_inst.grid(row=10, column=1)
+
+
+    boton_sim_MV_trenches_auto = tk.Button(frame_tabla_config_zanjas_MV, text="Simulate MV Trenches", command=simular_zanjas_MV_automatico, bg=rojo_GRS, fg='white', font=('Montserrat', 10, 'bold'))
+    boton_sim_MV_trenches_auto.grid(row=11, column=0, pady=20)   
+    
+valores_entradas_zanjas_MV_auto=[[],[],[],[],[],  [],[],[],[]]
+
+
+
+
+
+def entradas_zanjas_MV_manual(matriz_de_datos):
+    if matriz_de_datos.size>0:
+        #Limpiamos los widgets existentes antes de rellenar el frame (pero no rompemos los frames internos)
+        for widget in frame_tabla_config_zanjas_MV.winfo_children():
+            if not isinstance(widget, tk.Frame):
+                widget.destroy()    
+
+ 
+        # Canvas con scroll
+        canvas_MV = tk.Canvas(frame_tabla_config_zanjas_MV, height=400)
+        scrollbar_MV_x = tk.Scrollbar(frame_tabla_config_zanjas_MV, orient="horizontal", command=canvas_MV.xview)
+        scrollbar_MV_y = tk.Scrollbar(frame_tabla_config_zanjas_MV, orient="vertical", command=canvas_MV.yview)
+        canvas_MV.configure(xscrollcommand=scrollbar_MV_x.set)
+        canvas_MV.configure(yscrollcommand=scrollbar_MV_y.set)
+        
+        scrollbar_MV_x.grid(row=1, column=0, sticky='ew')
+        scrollbar_MV_y.grid(row=0, column=1, sticky='ns')
+        canvas_MV.grid(row=0, column=0, sticky='nsew')
+        
+        frame_MV_manual = tk.Frame(canvas_MV)
+        canvas_MV.create_window((0, 0), window=frame_MV_manual, anchor="nw")
+        
+        # Fuente uniforme tipo tabla
+        tabla_fuente = font.Font(family="Courier", size=10)
+        
+        # Encabezados
+        for j in range(0,len(matriz_de_datos[0,:])):
+            if j==0 or j==1:
+                ancho_celda = 10
+            else:
+                ancho_celda = 5
+                
+            header = tk.Label(frame_MV_manual, text=matriz_de_datos[0,j], bg="#f0f0f0", font=("HeMVetica", 10, "bold"),relief="ridge", width=ancho_celda, anchor="center", borderwidth=1)
+            header.grid(row=0, column=j, sticky="nsew")
+        
+        # Entradas tipo celda
+        global entradas_subtipos
+        entradas_subtipos=[0] #lista para almacenar luego los tk.entry, empieza en 1 por el header (se le añade un 0 al principio, aunque no se usara)
+        for i in range(1,len(matriz_de_datos[:,0])):
+            for j in range(0,len(matriz_de_datos[0,:])):
+                if j==0 or j==1:
+                    ancho_celda = 10
+                else:
+                    ancho_celda = 5
+                                        
+                if j == 1:
+                    e = tk.Entry(frame_MV_manual, width=ancho_celda, font=tabla_fuente, relief="solid", borderwidth=1,justify="center", bg="#fff")
+                    e.insert(0, matriz_de_datos[i,j])
+                    e.grid(row=i+1, column=j, sticky="nsew")
+                    entradas_subtipos.append(e)
+                else:
+                    lbl = tk.Label(frame_MV_manual, text=matriz_de_datos[i,j], width=ancho_celda, font=tabla_fuente, relief="solid", borderwidth=1, bg="#e6e6e6", anchor="center")
+                    lbl.grid(row=i+1, column=j, sticky="nsew")
+        
+        # Ajustar scroll dinámico
+        def ajustar_scroll(event):
+            canvas_MV.configure(scrollregion=canvas_MV.bbox("all"))
+        
+        frame_MV_manual.bind("<Configure>", ajustar_scroll)
+        
+        
+        
+        #Aprovechamsos para crear ya los encabezados de la tabla de anchos
+        
+        header = tk.Label(frame_tabla_anchos_zanjas_MV, text="Trench type", bg="#f0f0f0", font=("HeMVetica", 10, "bold"),relief="ridge", width=10, anchor="center", borderwidth=1)
+        header.grid(row=0, column=0, sticky="nsew")
+
+        header = tk.Label(frame_tabla_anchos_zanjas_MV, text="Subtype", bg="#f0f0f0", font=("HeMVetica", 10, "bold"),relief="ridge", width=10, anchor="center", borderwidth=1)
+        header.grid(row=0, column=1, sticky="nsew")       
+        
+        header = tk.Label(frame_tabla_anchos_zanjas_MV, text="Width (m)", bg="#f0f0f0", font=("HeMVetica", 10, "bold"),relief="ridge", width=10, anchor="center", borderwidth=1)
+        header.grid(row=0, column=2, sticky="nsew")
+        
+        
+        boton_flecha = tk.Button(frame_tabla_config_zanjas_MV, text="→", font=("HeMVetica", 20), command=entradas_anchos_manuales_MV)
+        boton_flecha.grid(row=0, column=2)
+    
+    
+        def exportar_tabla_subtipos_MV():
+            df_subtipos_MV=pd.DataFrame(config_circ_zanjas_MV)
+            df_subtipos_MV.to_excel("Circuits in MV Trenches.xlsx", index=False, header=False)
+            messagebox.showinfo("Export completed","Table exported to: Circuits in MV Trenches, in same folder.")
+        
+        boton_flecha = tk.Button(frame_tabla_config_zanjas_MV, text="Export to Excel", command=exportar_tabla_subtipos_MV, bg=rojo_GRS, fg='white', font=('Montserrat', 10, 'bold'))
+        boton_flecha.grid(row=2, column=0)
+        
+        def importar_tabla_subtipos_MV():
+            ruta_subtipos_MV = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx;*.xls")])
+            if not ruta_subtipos_MV:
+                print("No se seleccionó ningún archivo.")
+                return []
+        
+            extraccion_subtipos_MV = pd.read_excel(ruta_subtipos_MV)
+        
+            # Calcular hasta dónde hay valores en 'Trench types'
+            cantidad_valores = extraccion_subtipos_MV['Trench type'].notna().sum()
+        
+            # Obtener los subtipos hasta esa fila, reemplazando NaN por ''
+            subtypes_MV = extraccion_subtipos_MV.loc[:cantidad_valores - 1, 'Subtype'].fillna('').tolist()
+        
+            # Actualizar GUI
+            global entradas_subtipos
+            
+            for i in range(1, len(entradas_subtipos)):
+                if i - 1 < len(subtypes_MV):
+                    entradas_subtipos[i].delete(0, tk.END)
+                    entradas_subtipos[i].insert(0, subtypes_MV[i - 1])
+            
+            return subtypes_MV
+        
+        boton_flecha = tk.Button(frame_tabla_config_zanjas_MV, text="Import from Excel", command=importar_tabla_subtipos_MV, bg=rojo_GRS, fg='white', font=('Montserrat', 10, 'bold'))
+        boton_flecha.grid(row=2, column=1)
+        
+def entradas_anchos_manuales_MV():
+    global subtipos_introducidos, config_circ_zanjas_MV
+    subtipos_introducidos = [entrada.get() for entrada in entradas_subtipos[1:]]
+    subtipos_introducidos.insert(0,'Subtype')
+    
+    #Guardamos los valores introducidos en la primera tabla
+    config_circ_zanjas_MV[:,1]=subtipos_introducidos
+    
+    guardar_variables([config_circ_zanjas_MV], ['config_circ_zanjas_MV'])
+    
+    
+    
+    #Sacamos valores unicos para la segunda tabla
+    global tipos_y_subtipos_unicos_MV
+    identificadores = []
+    for i in range(1,len(config_circ_zanjas_MV[:,0])):
+        identificadores.append((str(config_circ_zanjas_MV[i,0]),subtipos_introducidos[i]))
+    
+    tipos_y_subtipos_unicos_MV = list(dict.fromkeys(identificadores))
+
+
+    #---GUI
+
+    # Fuente uniforme tipo tabla
+    tabla_fuente = font.Font(family="Courier", size=10)
+    
+
+
+    #Limpiamos los widgets existentes antes de rellenar el frame y voMVemos a crear los encabezados
+    for widget in frame_tabla_anchos_zanjas_MV.winfo_children():
+        if not isinstance(widget, tk.Frame):
+            widget.destroy() 
+            
+    header = tk.Label(frame_tabla_anchos_zanjas_MV, text="Trench type", bg="#f0f0f0", font=("HeMVetica", 10, "bold"),relief="ridge", width=10, anchor="center", borderwidth=1)
+    header.grid(row=0, column=0, sticky="nsew")
+
+    header = tk.Label(frame_tabla_anchos_zanjas_MV, text="Subtype", bg="#f0f0f0", font=("HeMVetica", 10, "bold"),relief="ridge", width=10, anchor="center", borderwidth=1)
+    header.grid(row=0, column=1, sticky="nsew")       
+    
+    header = tk.Label(frame_tabla_anchos_zanjas_MV, text="Width (m)", bg="#f0f0f0", font=("HeMVetica", 10, "bold"),relief="ridge", width=10, anchor="center", borderwidth=1)
+    header.grid(row=0, column=2, sticky="nsew")
+
+            
+    #Entradas tipo celda
+    global entradas_anchos_tipos_MV, anchos_tipos_MV
+    
+    if not anchos_tipos_MV:
+        anchos_tipos_MV = [''] * len(tipos_y_subtipos_unicos_MV)
+        
+    entradas_anchos_tipos_MV = []
+    
+    for i in range(0,len(tipos_y_subtipos_unicos_MV)):
+        for j in range(0,3):
+            ancho_celda = 10                 
+            if j == 2:
+                e_a = tk.Entry(frame_tabla_anchos_zanjas_MV, width=ancho_celda, font=tabla_fuente, relief="solid", borderwidth=1,justify="center", bg="#fff")
+                e_a.insert(0, anchos_tipos_MV[i])
+                e_a.grid(row=i+1, column=j, sticky="nsew")
+                entradas_anchos_tipos_MV.append(e_a)
+            else:
+                lbl = tk.Label(frame_tabla_anchos_zanjas_MV, text=tipos_y_subtipos_unicos_MV[i][j], width=ancho_celda, font=tabla_fuente, relief="solid", borderwidth=1, bg="#e6e6e6", anchor="center")
+                lbl.grid(row=i+1, column=j, sticky="nsew")
+    
+        
+    max_i=len(tipos_y_subtipos_unicos_MV)
+    
+    boton_sim_MV_trenches_auto = tk.Button(frame_tabla_anchos_zanjas_MV, text="Simulate MV Trenches", command=simular_zanjas_MV_manual, bg=rojo_GRS, fg='white', font=('Montserrat', 10, 'bold'))
+    boton_sim_MV_trenches_auto.grid(row=max_i+1, column=0, pady=20) 
+    
+        
+    
+    
+    
     
 
 #-------Simular ZANJAS DC
@@ -7133,20 +7577,202 @@ def simular_zanjas_LV_manual():
      
     
     
+#-------Simular ZANJAS MV
 
+#Definir metodo y sacar trazado listando entrandas necesarias segun el metodo - NO SE PONE PANTALLA DE CARGA PORQUE ES UN PROCESO RAPIDO
+
+def prediseño_zanjas_MV():
+    def simular_prediseño_zanjas_MV():
+        global prediseño_zanjas_MV_ID, tipos_zanjas_MV, Metodo_ancho_zanjas_MV, max_c_tz_mv
+        global error_de_simulacion
+
+        error_de_simulacion = 'Sin error'
+        
+        try: 
+            #Leer valores de entrada
+            Metodo_ancho_zanjas_MV = entrada_met_diseño.get() #Puede ser 'Manual','IEC 60364' o 'AS/NZS 3008'
+            max_c_tz_mv=int(entrada_max_c_tz_mv.get()) #maximo de circuitos en un mismo tipo de zanja
+            
+            #Sacar tipos basicos sin calcular anchos, los arrays de zanjas llevan [n_circuitos, 4 coordenadas]
+            prediseño_zanjas_MV_ID, tipos_zanjas_MV = Algoritmo_IXPHOS_4_Zanjas.trazado_zanjas_MV(pol_cable_MV, max_c_tz_mv)
+
+                
+            if Metodo_ancho_zanjas_MV =='Manual':
+                global config_circ_zanjas_MV, info_cada_zanja_MV
+                #Obtener tabla con distribucion de circuitos y tipos de zanjas protegidas
+                config_circ_zanjas_MV , info_cada_zanja_MV = Algoritmo_IXPHOS_4_Zanjas.combinaciones_circuitos_zanjas_MV(pol_cable_MV, lineas_MV, tipos_zanjas_MV, polilineas_caminos)
+                
+                guardar_variables([config_circ_zanjas_MV,info_cada_zanja_MV],['config_circ_zanjas_MV','info_cada_zanja_MV'])
+                
+            #Guardar variables en el dicionario
+            guardar_variables([prediseño_zanjas_MV_ID, tipos_zanjas_MV, Metodo_ancho_zanjas_MV, max_c_tz_mv],['prediseño_zanjas_MV_ID', 'tipos_zanjas_MV', 'Metodo_ancho_zanjas_MV', 'max_c_tz_mv'])
+            
+        except:
+            error_de_simulacion = 'Error trazado zanjas'
+            traceback.print_exc()
+            
+    
+    def cerrar_ventana_y_listar_nuevas_entradas(ventana_carga):
+        try:
+            ventana_carga.destroy() #se cierra el gif de carga
+            
+            if error_de_simulacion == 'Error trazado zanjas':
+                messagebox.showerror("Error", "There was an error creating MV trenches, please check data.")
+
+            else: #si no ha habido fallo listamos las entradas necesarias correspondientes al metodo elegido
+                if Metodo_ancho_zanjas_MV =='Manual':
+                    entradas_zanjas_MV_manual(config_circ_zanjas_MV)
+                else:
+                    entradas_zanjas_MV_auto(valores_entradas_zanjas_MV_auto)
+                    
+        except:
+            print("Error al borrar el gif")
+            traceback.print_exc()
+        
+    def tarea_prediseño_zanjas_MV():
+        simular_prediseño_zanjas_MV()
+        root.after(0, lambda: cerrar_ventana_y_listar_nuevas_entradas(ventana_carga)) #ACTUALIZAR GUI UNA VEZ SE HAN CARGADO LOS DATOS FUERA DEL HILO SECUNDARIO
+    
+    ventana_carga = crear_gif_espera()
+    
+    hilo_secundario = threading.Thread(target = tarea_prediseño_zanjas_MV) #creamos un hilo de ejecucion paralelo a la interfaz grafica principal para que se actualice la ventana de carga y no se quede bloqueada mientras se ejecuta el proceso principal (en el hilo secundario, al reves da problemas en tkinter)
+    hilo_secundario.start()
+
+
+boton_sim_MV_trenches = tk.Button(frame_zanjas_MV_prediseño, text="Route MV Trenches", command=prediseño_zanjas_MV, bg=rojo_GRS, fg='white', font=('Montserrat', 10, 'bold'))
+boton_sim_MV_trenches.grid(row=1, column=3, pady=20)   
+
+
+ 
+
+def simular_zanjas_MV_automatico():
+       
+    def proceso_simular_zanjas_MV_automatico():
+        global zanjas_MV_ID, tipos_y_subtipos_unicos, entradas_diseño_automatico
+        global error_de_simulacion
+        error_de_simulacion = 'Sin error'
+        
+        try:
+            entradas_diseño_automatico = np.zeros(9, dtype=object)
+            
+            #Leer valores de entrada
+            ancho_min_MV_trench_auto = float(valor_ancho_min.get())
+            int_circ_MV_trench_auto = float(valor_int_circ.get())
+            mat_cond_MV_trench_auto = entrada_material_cond.get() #puede ser 'Cobre' o 'Aluminio'
+            mat_ais_MV_trench_auto = entrada_material_ais.get()  #puede ser 'XLPE o EPR (90ºC)' o 'PVC (70ºC)'
+            cross_sect_MV_trench_auto = int(entrada_secciones_MV.get()) #sqmm #restringido a los valores de la tabla
+            cab_diam_MV_trench_auto = float(valor_cab_diam.get())    #mm
+            met_inst_MV_trench_auto = entrada_met_inst.get() #puede ser 'Directamente enterrado' o 'Enterrado bajo tubo'
+            temp_MV_trench_auto = float(valor_temp.get())  #ºC
+            res_ter_MV_trench_auto = float(valor_res_ter.get())  #W/m-K
+            
+            entradas_diseño_automatico = [ancho_min_MV_trench_auto, int_circ_MV_trench_auto, mat_cond_MV_trench_auto, mat_ais_MV_trench_auto, cross_sect_MV_trench_auto, cab_diam_MV_trench_auto, met_inst_MV_trench_auto, temp_MV_trench_auto, res_ter_MV_trench_auto]
+            
+            zanjas_MV_ID, tipos_y_subtipos_unicos_MV = Algoritmo_IXPHOS_4_Zanjas.calculo_anchos_zanjas_MV(DCBoxes_o_Inv_String, bloque_inicial, n_bloques, tipos_zanjas_MV, Metodo_ancho_zanjas_MV, entradas_diseño_automatico, 0)
+            
+            
+            #Guardar variables en el dicionario
+            guardar_variables([zanjas_MV_ID, tipos_y_subtipos_unicos_MV, ancho_min_MV_trench_auto, int_circ_MV_trench_auto, mat_cond_MV_trench_auto, mat_ais_MV_trench_auto, cross_sect_MV_trench_auto, cab_diam_MV_trench_auto, met_inst_MV_trench_auto, temp_MV_trench_auto, res_ter_MV_trench_auto],['zanjas_MV_ID', 'tipos_y_subtipos_unicos_MV', 'ancho_min_MV_trench_auto', 'int_circ_MV_trench_auto', 'mat_cond_MV_trench_auto', 'mat_ais_MV_trench_auto', 'cross_sect_MV_trench_auto', 'cab_diam_MV_trench_auto', 'met_inst_MV_trench_auto', 'temp_MV_trench_auto', 'res_ter_MV_trench_auto'])
+        except:
+            error_de_simulacion = 'Error calc automatico'
+            traceback.print_exc()
+
+    def cerrar_ventana_tras_MV_auto(ventana_carga):
+        try:
+            ventana_carga.destroy() #se cierra el gif de carga
+            
+            if error_de_simulacion == 'Error trazado zanjas':
+                messagebox.showerror("Error", "There was an error calculating trenches, please check data.")
+            elif error_de_simulacion == 'Error calc automatico':
+                messagebox.showerror("Error", "There was an error while calculating trenches width, please check data.")
+        except:
+            print("Error al borrar el gif")
+
+        
+    def tarea_simular_zanjas_MV_auto():
+        proceso_simular_zanjas_MV_automatico()
+        root.after(0, lambda: cerrar_ventana_tras_MV_auto(ventana_carga)) #ACTUALIZAR GUI UNA VEZ SE HAN CARGADO LOS DATOS FUERA DEL HILO SECUNDARI
+
+    ventana_carga = crear_gif_espera()
+    
+    hilo_secundario = threading.Thread(target = tarea_simular_zanjas_MV_auto) #creamos un hilo de ejecucion paralelo a la interfaz grafica principal para que se actualice la ventana de carga y no se quede bloqueada mientras se ejecuta el proceso principal (en el hilo secundario, al reves da problemas en tkinter)
+    hilo_secundario.start()
+
+
+
+
+
+
+def simular_zanjas_MV_manual():
+    
+    def proceso_simular_zanjas_MV_manual():
+        global zanjas_MV_ID
+        global error_de_simulacion
+        error_de_simulacion = 'Sin error'
+        
+        try:
+            #Leemos los anchos tras pulsar el boton
+            anchos_tipos_MV = [entrada.get() for entrada in entradas_anchos_tipos_MV]
+            #Tras introducir anchos en los tipos y subtipos ahora toca traer los datos de vuelta con los identificadores sobre cada zanja, lo integramos en la funcion de calculo de anchos de zanja
+            entradas_diseño_manual=[]
+            entradas_diseño_manual.append(config_circ_zanjas_MV)
+            entradas_diseño_manual.append(tipos_y_subtipos_unicos_MV)
+            entradas_diseño_manual.append(anchos_tipos_MV)
+            entradas_diseño_manual.append(info_cada_zanja_MV)
+
+                                        #tipos_y_subtipos unicos se mete a mano, ya no es salida
+            zanjas_MV_ID = Algoritmo_IXPHOS_4_Zanjas.calculo_anchos_zanjas_MV(tipos_zanjas_MV, Metodo_ancho_zanjas_MV, 0, entradas_diseño_manual)
+            
+            #Guardar variables en el dicionario
+            guardar_variables([zanjas_MV_ID],['zanjas_MV_ID'])
+        except:
+            error_de_simulacion = 'Error calc automatico'
+            traceback.print_exc()
+            
+        
+    def cerrar_ventana_tras_MV_trench_manual(ventana_carga):
+        try:
+            ventana_carga.destroy() #se cierra el gif de carga
+            
+            if error_de_simulacion == 'Error trazado zanjas':
+                messagebox.showerror("Error", "There was an error calculating trenches, please check data.")
+            elif error_de_simulacion == 'Error calc automatico':
+                messagebox.showerror("Error", "There was an error while calculating trenches width, please check data.")
+            elif error_de_simulacion == 'Sin error':
+                messagebox.showinfo("Success", "MV Trenches calculated successfully")
+        except:
+            print("Error al borrar el gif")
+        
+    def tarea_simular_zanjas_MV_manual():
+        proceso_simular_zanjas_MV_manual()
+        root.after(0, lambda: cerrar_ventana_tras_MV_trench_manual(ventana_carga)) #ACTUALIZAR GUI UNA VEZ SE HAN CARGADO LOS DATOS FUERA DEL HILO SECUNDARIO
+    
+
+    ventana_carga = crear_gif_espera()
+    
+    hilo_secundario = threading.Thread(target = tarea_simular_zanjas_MV_manual) #creamos un hilo de ejecucion paralelo a la interfaz grafica principal para que se actualice la ventana de carga y no se quede bloqueada mientras se ejecuta el proceso principal (en el hilo secundario, al reves da problemas en tkinter)
+    hilo_secundario.start()    
+    
+    
+    
+
+#-----------Combinar zanjas
 
 def combinar_zanjas():
     
     def proceso_combinar_zanjas():
-        global zanjas_LV_ID, zanjas_AS_ID
-        global error_simulacion
-        error_simulacion = 'Sin error'
+        global zanjas_LV_ID, zanjas_AS_ID, zanjas_MV_ID
+        global error_de_simulacion
+        error_de_simulacion = 'Sin error'
 
-                
-        zanjas_LV_ID, zanjas_AS_ID = Algoritmo_IXPHOS_4_Zanjas.combinar_todas_las_zanjas(bloque_inicial, n_bloques, PB_zanjas_LV_ID, zanjas_LV_ID, zanjas_AS_ID)
+        try:        
+            zanjas_LV_ID, zanjas_AS_ID, zanjas_MV_ID = Algoritmo_IXPHOS_4_Zanjas.combinar_todas_las_zanjas(bloque_inicial, n_bloques, PB_zanjas_LV_ID, zanjas_LV_ID, zanjas_AS_ID, zanjas_MV_ID)
         
-        # guardar_variables([zanjas_AS_ID],['zanjas_AS_ID'])
-        
+            guardar_variables([zanjas_LV_ID, zanjas_AS_ID, zanjas_MV_ID],['zanjas_LV_ID', 'zanjas_AS_ID', 'zanjas_MV_ID'])
+        except:
+            error_de_simulacion = 'Error'
+            traceback.print_exc()
+            
     def cerrar_ventana_tras_combinar_zanjas(ventana_carga):
         try:
             ventana_carga.destroy() #se cierra el gif de carga
@@ -7155,6 +7781,9 @@ def combinar_zanjas():
             
         if error_de_simulacion == 'Error':
             messagebox.showerror("Error", "There was an error while processing, please check data.")
+        elif error_de_simulacion == 'Sin error':
+            messagebox.showinfo("Success", "Trenches were successfully combined.")
+            
 
 
     def tarea_combinar_zanjas():
@@ -7458,7 +8087,7 @@ def resumen_de_variables_totales():
     TOT_Array_Terminal_Box,
     TOT_Array_Terminal_PCS,
     TOT_tubo_DC
-) = Algoritmo_IXPHOS_5_PAT_y_mediciones_finales.mediciones_por_bloque_y_totales_LV_material(bloque_inicial, n_bloques, n_mods_serie, Interconexionado, DCBoxes_o_Inv_String, String_o_Bus, strings_fisicos, filas_con_cable_string, harness_neg, sch_cable_de_string_neg, sch_DC_Bus_neg, sch_array_cable_neg, sch_array_cable, med_tubo_corrugado_zanja_DC, PB_n_strings)
+) = Algoritmo_IXPHOS_5_PAT_y_mediciones_finales.mediciones_por_bloque_y_totales_LV_material(bloque_inicial, n_bloques, n_mods_serie, Interconexionado, DCBoxes_o_Inv_String, String_o_Bus, strings_fisicos, filas_con_cable_string, harness_neg, sch_cable_de_string_neg, sch_DC_Bus_neg, sch_array_cable_neg, sch_array_cable, med_tubo_corrugado_zanja_DC, PB_n_strings, secciones_array)
     
     if error_medicion_cables != '' or error_medicion_zanjas != '' or error_medicion_cajas != '' or error_medicion_PAT != '':
         messagebox.showinfo('Missing output info',f'{error_medicion_cables} {error_medicion_zanjas} {error_medicion_cajas} {error_medicion_PAT} information is not being showed because simulation was not performed or an error ocurred')    
@@ -7571,7 +8200,7 @@ def resumen_de_variables_totales():
             elif DCBoxes_o_Inv_String == 'String Inverters':
                 if TOT_inst_cable_de_array_AC is not None:
                     if secciones_array[i] > 0 and TOT_med_cable_de_array_AC[0,i]>0:
-                        if uni_o_multipolar == 3:
+                        if uni_o_multipolar == 1:
                             datos_resumen.append(["Array cable supply", f'AC, single core, {secciones_array[i]} mm2', TOT_med_cable_de_array_AC[1,i]])
                         else:
                             datos_resumen.append(["Array cable supply", f'AC, multicore, {secciones_array[i]} mm2', TOT_med_cable_de_array_AC[1,i]])
@@ -7623,7 +8252,7 @@ def resumen_de_variables_totales():
             elif DCBoxes_o_Inv_String == 'String Inverters':
                 if TOT_inst_cable_de_array_AC is not None:
                     if secciones_array[i] > 0 and TOT_inst_cable_de_array_AC[0,i]>0:
-                        if uni_o_multipolar == 3:
+                        if uni_o_multipolar == 1:
                             datos_resumen.append(["Array cable installation", f'AC, single core, {secciones_array[i]} mm2', TOT_inst_cable_de_array_AC[1,i]])
                         else:
                             datos_resumen.append(["Array cable installation", f'AC, multicore, {secciones_array[i]} mm2', TOT_inst_cable_de_array_AC[1,i]])
@@ -7696,10 +8325,10 @@ def resumen_de_variables_totales():
             datos_resumen.append(["DC Bus Encaps", "(+ and -)", TOT_DCBus_Endcaps])
        
         if TOT_Array_Terminal_Box is not None:
-            for i in range(0,len(TOT_Array_Terminal_Box)):
+            for i in range(TOT_Array_Terminal_Box.shape[1]):
                 datos_resumen.append(["Array Cable Lugs", f"DC Box - {TOT_Array_Terminal_Box[0,i]} mm2", TOT_Array_Terminal_Box[1,i]])
                 
-            for i in range(0,len(TOT_Array_Terminal_PCS)):            
+            for i in range(TOT_Array_Terminal_PCS.shape[1]):           
                 datos_resumen.append(["Array Cable Lugs", f"PCS - {TOT_Array_Terminal_Box[0,i]} mm2", TOT_Array_Terminal_PCS[1,i]])    
              
 
@@ -7856,7 +8485,7 @@ def export_PV_Plant_results_to_excel():
         n_neg = SCH_array_neg_filtrado.shape[0]
         n_total = n_pos + n_neg
         
-        intercalado = np.empty((n_total, 4), dtype=object)
+        intercalado = np.empty((n_total, 3), dtype=object)
         
         # Intercalar hasta el tamaño mínimo
         min_len = min(n_pos, n_neg)
@@ -7878,7 +8507,13 @@ def export_PV_Plant_results_to_excel():
     ruta_completa = carpeta_archivo + "Array Schedule.xlsx"
     df_SCH_Array.to_excel(ruta_completa, index=False, header=True)
 
-        
+    #___PICAS COMBOXES Y CAJAS O INV DE STRING
+    if DCBoxes_o_Inv_String == 'DC Boxes': #LO LIMITAMOS DE MOMENTO PORQUE NO SE HA DESARROLLADO PARA INV DE STRING
+        SCH_picas_cajas = Algoritmo_IXPHOS_5_PAT_y_mediciones_finales.schedule_picas_comboxes_cajas_inv_str(bloque_inicial, n_bloques, max_c_block, DCBoxes_ID, String_Inverters_ID, coord_Comboxes, DCBoxes_o_Inv_String, orientacion, largo_caja, equi_reverse_ibc)
+        encabezados = ['ID', 'X coord.', 'Y coord.']
+        df_SCH_picas_cajas = pd.DataFrame(SCH_picas_cajas, columns=encabezados)
+        ruta_completa = carpeta_archivo + "Boxes Piles Schedule.xlsx"
+        df_SCH_picas_cajas.to_excel(ruta_completa, index=False, header=True)
 
     #----------LIST OF STRINGS-------
     if DCBoxes_o_Inv_String == 'DC Boxes':
@@ -8201,6 +8836,74 @@ check_inter.grid(row=2, column=1, padx=5, pady=5, sticky='w')
 
 
 
+#---------DIBUJAR ZANJAS MV
+
+def dibujar_zanjas_MV():
+    def proceso_dibujo_zanjas_MV():
+        global error_de_dibujo
+        error_de_dibujo='Sin error'
+        
+        try:
+            pythoncom.CoInitialize() #Inicializamos la API de autocad con python en el hilo secundario
+
+            
+            #Buscamos si está la referencia abierta y si no se crea un dibujo nuevo
+            referencia = 'XREF_Unified.dwg'
+            acad = AutoCAD_extension.conexion_con_CAD_para_dibujar(referencia)
+            if acad is None:
+                error_de_dibujo='AutoCAD no abierto'
+                return #se corta la funcion antes de seguir
+            
+            root.after(0,time.sleep(0.5)) #damos tiempo entre las funciones para evitar que AutoCAD se autobloquee al estar en un hilo secundario
+            
+            #Dibujamos con la funcion definida en la extension y guardamos las capas por si luego se leen
+            AutoCAD_extension.CAD_draw_zanjas_MV(acad, zanjas_MV_ID)
+            
+            pythoncom.CoUninitialize() #Cerramos en el hilo secundario para ahorrar recursos
+                                       
+        except comtypes.COMError as e:
+            if e.hresult == -2147417846:
+                error_de_dibujo = 'Interaccion con AutoCAD'
+            else:
+                error_de_dibujo = 'Otro error'
+        except Exception:
+            error_de_dibujo = 'Otro error'
+            traceback.print_exc()
+            
+  
+    def cerrar_ventana_tras_simular_dibujo_zanjas_MV(ventana_carga):
+        try:
+            ventana_carga.destroy() #se cierra el gif de carga
+            if error_de_dibujo == 'Sin error':
+                messagebox.showinfo("Drawing completed","Information added successfully to drawing.")
+                
+            elif error_de_dibujo == 'AutoCAD no abierto':
+                messagebox.showerror("Error", "AutoCAD could not be used, please check that AutoCAD is open.")
+                
+            elif error_de_dibujo == 'Interaccion con AutoCAD':
+                messagebox.showerror("Error", "AutoCAD is busy. Please, do not interact with it while drawing.")
+                
+            else:
+                messagebox.showerror("Error", "There was an error while drawing, please check data.")
+        except:
+            print("Error al borrar el gif")
+        
+    #ejecutamos el proceso en paralelo al gif de carga
+    def tarea_zanjas_MV():
+        proceso_dibujo_zanjas_MV()
+        root.after(0, lambda: cerrar_ventana_tras_simular_dibujo_zanjas_MV(ventana_carga)) #ACTUALIZAR GUI UNA VEZ SE HAN CARGADO LOS DATOS FUERA DEL HILO SECUNDARIO
+        
+    ventana_carga = crear_gif_espera()
+    
+    hilo_secundario = threading.Thread(target = tarea_zanjas_MV) #creamos un hilo de ejecucion paralelo a la interfaz grafica principal para que se actualice la ventana de carga y no se quede bloqueada mientras se ejecuta el proceso principal (en el hilo secundario, al reves da problemas en tkinter)
+    hilo_secundario.start()
+
+    
+#Boton para dibujar todos los bloques    
+boton_CAD_zanjas_MV = tk.Button(frame_ACAD_container, text="Draw MV Trenches", command=dibujar_zanjas_MV, bg=rojo_GRS, fg='white', font=('Montserrat', 10, 'bold'))
+boton_CAD_zanjas_MV.grid(row=3, column=0, pady=20)
+
+
 
 
 #---------DIBUJAR ZANJAS DC
@@ -8242,7 +8945,7 @@ def dibujar_zanjas_DC():
         try:
             ventana_carga.destroy() #se cierra el gif de carga
             if error_de_dibujo == 'Sin error':
-                messagebox.showinfo("Drawing completed","Information added successfully to drawing. It is recommended to save it as XREF_Config_LV")
+                messagebox.showinfo("Drawing completed","Information added successfully to drawing.")
                 
             elif error_de_dibujo == 'AutoCAD no abierto':
                 messagebox.showerror("Error", "AutoCAD could not be used, please check that AutoCAD is open.")
@@ -8267,7 +8970,7 @@ def dibujar_zanjas_DC():
 
 #Boton para dibujar todos los bloques    
 boton_zdc_CAD_draw = tk.Button(frame_ACAD_container, text="Draw DC Trenches", command=dibujar_zanjas_DC, bg=rojo_GRS, fg='white', font=('Montserrat', 10, 'bold'))
-boton_zdc_CAD_draw.grid(row=3, column=0, pady=20)
+boton_zdc_CAD_draw.grid(row=4, column=0, pady=20)
 
 entrada_all_blocks_zdc = tk.BooleanVar(value=False)
 all_blocks_zdc = True
@@ -8290,10 +8993,10 @@ def activate_spinbox_zdc():
         
 #Marcador y spinbox para dibujar o leer un solo bloque
 spinbox_zdc = tk.Spinbox(frame_ACAD_container, from_=1, to=100, state='disabled', command=update_single_block_zdc, width=2, font=('Montserrat', 10))
-spinbox_zdc.grid(row=3, column=1, padx=5, pady=5, sticky='w')
+spinbox_zdc.grid(row=4, column=1, padx=5, pady=5, sticky='w')
 
 check_zdc = ttk.Checkbutton(frame_ACAD_container, text="Single block", variable=entrada_all_blocks_zdc, command=activate_spinbox_zdc)
-check_zdc.grid(row=3, column=2, padx=5, pady=5, sticky='w')
+check_zdc.grid(row=4, column=2, padx=5, pady=5, sticky='w')
 
 
 
@@ -8335,7 +9038,7 @@ def dibujar_zanjas_LV():
         try:
             ventana_carga.destroy() #se cierra el gif de carga
             if error_de_dibujo == 'Sin error':
-                messagebox.showinfo("Drawing completed","Information added successfully to drawing. It is recommended to save it as XREF_Config_LV")
+                messagebox.showinfo("Drawing completed","Information added successfully to drawing.")
                 
             elif error_de_dibujo == 'AutoCAD no abierto':
                 messagebox.showerror("Error", "AutoCAD could not be used, please check that AutoCAD is open.")
@@ -8360,7 +9063,7 @@ def dibujar_zanjas_LV():
 
 #Boton para dibujar todos los bloques    
 boton_zlv_CAD_draw = tk.Button(frame_ACAD_container, text="Draw LV Trenches", command=dibujar_zanjas_LV, bg=rojo_GRS, fg='white', font=('Montserrat', 10, 'bold'))
-boton_zlv_CAD_draw.grid(row=4, column=0, pady=20)
+boton_zlv_CAD_draw.grid(row=5, column=0, pady=20)
 
 entrada_all_blocks_zlv = tk.BooleanVar(value=False)
 all_blocks_zlv = True
@@ -8383,10 +9086,10 @@ def activate_spinbox_zlv():
         
 #Marcador y spinbox para dibujar o leer un solo bloque
 spinbox_zlv = tk.Spinbox(frame_ACAD_container, from_=1, to=100, state='disabled', command=update_single_block_zlv, width=2, font=('Montserrat', 10))
-spinbox_zlv.grid(row=4, column=1, padx=5, pady=5, sticky='w')
+spinbox_zlv.grid(row=5, column=1, padx=5, pady=5, sticky='w')
 
 check_zlv = ttk.Checkbutton(frame_ACAD_container, text="Single block", variable=entrada_all_blocks_zlv, command=activate_spinbox_zlv)
-check_zlv.grid(row=4, column=2, padx=5, pady=5, sticky='w')
+check_zlv.grid(row=5, column=2, padx=5, pady=5, sticky='w')
 
 
 
@@ -8431,7 +9134,7 @@ def dibujar_zanjas_AS():
         try:
             ventana_carga.destroy() #se cierra el gif de carga
             if error_de_dibujo == 'Sin error':
-                messagebox.showinfo("Drawing completed","Information added successfully to drawing. It is recommended to save it as XREF_Earthing")
+                messagebox.showinfo("Drawing completed","Information added successfully to drawing.")
                 
             elif error_de_dibujo == 'AutoCAD no abierto':
                 messagebox.showerror("Error", "AutoCAD could not be used, please check that AutoCAD is open.")
@@ -8457,7 +9160,7 @@ def dibujar_zanjas_AS():
     
 #Boton para dibujar todos los bloques    
 boton_CAD_zanjas_AS = tk.Button(frame_ACAD_container, text="Draw AS Trenches", command=dibujar_zanjas_AS, bg=rojo_GRS, fg='white', font=('Montserrat', 10, 'bold'))
-boton_CAD_zanjas_AS.grid(row=5, column=0, pady=20)
+boton_CAD_zanjas_AS.grid(row=6, column=0, pady=20)
 
 
 
@@ -8498,7 +9201,7 @@ def dibujar_PAT():
         try:
             ventana_carga.destroy() #se cierra el gif de carga
             if error_de_dibujo == 'Sin error':
-                messagebox.showinfo("Drawing completed","Information added successfully to drawing. It is recommended to save it as XREF_Earthing")
+                messagebox.showinfo("Drawing completed","Information added successfully to drawing.")
                 
             elif error_de_dibujo == 'AutoCAD no abierto':
                 messagebox.showerror("Error", "AutoCAD could not be used, please check that AutoCAD is open.")
@@ -8524,7 +9227,7 @@ def dibujar_PAT():
     
 #Boton para dibujar todos los bloques    
 boton_CAD_PAT = tk.Button(frame_ACAD_container, text="Draw Earthing", command=dibujar_PAT, bg=rojo_GRS, fg='white', font=('Montserrat', 10, 'bold'))
-boton_CAD_PAT.grid(row=6, column=0, pady=20)
+boton_CAD_PAT.grid(row=7, column=0, pady=20)
 
 entrada_all_blocks_PAT = tk.BooleanVar(value=False)
 all_blocks_PAT = True
@@ -8549,10 +9252,10 @@ def activate_spinbox_PAT():
 #TODO inicializar en el bloque real
 bloque_inicial=1 #inicializamos bloque inicial en 1 para las spinbox antes de que se cargue el verdadero, al calcular bloque_inicial y n_bloques se cambian tanto from como to, 1 y 100 son solo para inicializar
 spinbox_PAT = tk.Spinbox(frame_ACAD_container, from_=1, to=100, state='disabled', command=update_single_block_PAT, width=2, font=('Montserrat', 10))
-spinbox_PAT.grid(row=6, column=1, padx=5, pady=5, sticky='w')
+spinbox_PAT.grid(row=7, column=1, padx=5, pady=5, sticky='w')
 
 check_PAT = ttk.Checkbutton(frame_ACAD_container, text="Single block", variable=entrada_all_blocks_PAT, command=activate_spinbox_PAT)
-check_PAT.grid(row=6, column=2, padx=5, pady=5, sticky='w')
+check_PAT.grid(row=7, column=2, padx=5, pady=5, sticky='w')
 
 
 # Ejecutar el bucle principal de la ventana
